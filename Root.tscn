@@ -1,11 +1,17 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Sea/Tileset.xml" type="TileSet" id=1]
 [ext_resource path="res://Sea/Sea.gd" type="Script" id=2]
 [ext_resource path="res://Islands/Tileset.xml" type="TileSet" id=3]
 [ext_resource path="res://Islands/Islands.gd" type="Script" id=4]
-[ext_resource path="res://Player/Player.gd" type="Script" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Player/Boat.gd" type="Script" id=6]
+[ext_resource path="res://Player/Player.gd" type="Script" id=7]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -18,6 +24,7 @@ extents = Vector2( 32, 32 )
 
 [node name="Sea" type="TileMap" parent="Game"]
 
+visibility/visible = false
 mode = 0
 tile_set = ExtResource( 1 )
 cell/size = Vector2( 64, 64 )
@@ -54,6 +61,29 @@ occluder/light_mask = 1
 tile_data = IntArray(  )
 script/script = ExtResource( 4 )
 
+[node name="Boat" type="Sprite" parent="Game"]
+
+visibility/visible = false
+texture = ExtResource( 5 )
+script/script = ExtResource( 6 )
+
+[node name="Area" type="Area2D" parent="Game/Boat"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Game/Boat/Area"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
 [node name="Player" type="KinematicBody2D" parent="Game"]
 
 input/pickable = false
@@ -63,11 +93,11 @@ shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
-script/script = ExtResource( 5 )
+script/script = ExtResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="Game/Player"]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Game/Player"]
 
@@ -93,5 +123,13 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
+
+[connection signal="move_in_boat" from="Game/Boat" to="Game/Player" method="_on_Player_move_in_boat"]
+
+[connection signal="body_enter" from="Game/Boat/Area" to="Game/Boat" method="_on_player_enter_boat"]
+
+[connection signal="move_on_land" from="Game/Player" to="Game/Player" method="_on_Player_move_on_land"]
+
+[connection signal="move_on_land" from="Game/Player" to="Game/Boat" method="_on_Player_move_on_land"]
 
 
