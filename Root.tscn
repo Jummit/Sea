@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Sea/Tileset.xml" type="TileSet" id=1]
-[ext_resource path="res://Islands/Tileset.xml" type="TileSet" id=2]
-[ext_resource path="res://Player/Player.gd" type="Script" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Sea/Sea.gd" type="Script" id=2]
+[ext_resource path="res://Islands/Tileset.xml" type="TileSet" id=3]
+[ext_resource path="res://Islands/Islands.gd" type="Script" id=4]
+[ext_resource path="res://Player/Player.gd" type="Script" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -31,11 +33,12 @@ collision/layers = 2
 collision/mask = 2
 occluder/light_mask = 1
 tile_data = IntArray(  )
+script/script = ExtResource( 2 )
 
 [node name="Islands" type="TileMap" parent="Game"]
 
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell/size = Vector2( 64, 64 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -49,6 +52,7 @@ collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray(  )
+script/script = ExtResource( 4 )
 
 [node name="Player" type="KinematicBody2D" parent="Game"]
 
@@ -59,11 +63,11 @@ shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
-script/script = ExtResource( 3 )
+script/script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Game/Player"]
 
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Game/Player"]
 
