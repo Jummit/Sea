@@ -3,7 +3,9 @@ extends KinematicBody2D
 signal move_on_land
 
 var mode = "boat"
-var speed = 10000
+var boat_speed = 10000
+var land_speed = 5000
+var speed = boat_speed
 var moves = {
 	left = Vector2(-1, 0),
 	right = Vector2(1, 0),
@@ -49,6 +51,7 @@ func _process(delta):
 		sprite.stop()
 
 func _on_Player_move_in_boat():
+	speed = boat_speed
 	mode = "boat"
 	sprite.set_animation("Ship")
 	set_pos(boat.get_pos())
@@ -58,6 +61,7 @@ func _on_Player_move_in_boat():
 	set_collision_mask(1)
 
 func _on_Player_move_on_land(move):
+	speed = land_speed
 	mode = "land"
 	sprite.set_animation("Player")
 	sprite.set_frame(0)
