@@ -26,7 +26,7 @@ func _process(delta):
 			var collider = get_collider()
 			if collider == islands:
 				emit_signal("move_on_land", toMove.normalized())
-				set_pos(get_pos()+toMove.normalized()*100)
+				set_pos(get_pos()+toMove.normalized()*70)
 
 func _on_Player_move_in_boat():
 	set_pos(boat.get_pos())
