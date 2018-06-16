@@ -18,5 +18,5 @@ func generate_island(x, y):
 
 func _on_Sea_generated(sea):
 	randomize()
-	for i in range(1, 300):
+	for i in range(1, 50):
 		generate_island(rand_range(-100, 100), rand_range(-100, 100))

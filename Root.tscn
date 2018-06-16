@@ -4,7 +4,7 @@
 [ext_resource path="res://Sea/Sea.gd" type="Script" id=2]
 [ext_resource path="res://Islands/Tileset.xml" type="TileSet" id=3]
 [ext_resource path="res://Islands/Islands.gd" type="Script" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Player/sprites.tres" type="SpriteFrames" id=5]
 [ext_resource path="res://Player/Boat.gd" type="Script" id=6]
 [ext_resource path="res://Player/Player.gd" type="Script" id=7]
 
@@ -60,12 +60,13 @@ occluder/light_mask = 1
 tile_data = IntArray(  )
 script/script = ExtResource( 4 )
 
-[node name="Boat" type="Sprite" parent="Game"]
+[node name="Boat" type="AnimatedSprite" parent="Game"]
 
 visibility/visible = false
 transform/pos = Vector2( 16, 16 )
 transform/scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 5 )
+frames = ExtResource( 5 )
+animation = "Ship"
 script/script = ExtResource( 6 )
 
 [node name="Area" type="Area2D" parent="Game/Boat"]
@@ -107,10 +108,6 @@ collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 7 )
 
-[node name="Sprite" type="Sprite" parent="Game/Player"]
-
-texture = ExtResource( 5 )
-
 [node name="CollisionShape" type="CollisionShape2D" parent="Game/Player"]
 
 shape = SubResource( 2 )
@@ -136,14 +133,16 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
+[node name="Sprite" type="AnimatedSprite" parent="Game/Player"]
+
+transform/scale = Vector2( 2, 2 )
+frames = ExtResource( 5 )
+animation = "Ship"
+
 [connection signal="generated" from="Game/Sea" to="Game/Islands" method="_on_Sea_generated"]
 
 [connection signal="move_in_boat" from="Game/Boat" to="Game/Player" method="_on_Player_move_in_boat"]
 
-[connection signal="body_enter" from="Game/Boat/Area" to="Game/Boat" method="_on_player_enter_boat"]
-
 [connection signal="move_on_land" from="Game/Player" to="Game/Player" method="_on_Player_move_on_land"]
-
-[connection signal="move_on_land" from="Game/Player" to="Game/Boat" method="_on_Player_move_on_land"]
 
 
