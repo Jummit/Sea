@@ -1,9 +1,22 @@
 extends TileMap
 
+func try_to_generate_island_tile(x, y, rand):
+	if not get_cell(x, y) == 0:
+		if rand_range(1, 20)<8:
+			generate_island_tile(x, y, rand)
+
+func generate_island_tile(x, y, rand):
+	get_node("../Sea").set_cell(x, y, -1)
+	set_cell(x, y, 0)
+	try_to_generate_island_tile(x+1, y, rand)
+	try_to_generate_island_tile(x-1, y, rand)
+	try_to_generate_island_tile(x, y+1, rand)
+	try_to_generate_island_tile(x, y-1, rand)
+
+func generate_island(x, y):
+	generate_island_tile(x, y, 2)
+
 func _on_Sea_generated(sea):
-	for i in range(1, 100):
-		var pos = Vector2(rand_range(-100, 100), rand_range(-100, 100))
-		for x in range(-3, 3):
-			for y in range(-3, 3):
-				sea.set_cell(pos.x+x, pos.y+y, -1)
-				set_cell(pos.x+x, pos.y+y, 0)
+	randomize()
+	for i in range(1, 300):
+		generate_island(rand_range(-100, 100), rand_range(-100, 100))
