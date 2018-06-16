@@ -7,7 +7,7 @@ func try_to_generate_island_tile(x, y, rand):
 
 func generate_island_tile(x, y, rand):
 	get_node("../Sea").set_cell(x, y, -1)
-	set_cell(x, y, 0)
+	set_cell(x, y, rand_range(0, 3))
 	try_to_generate_island_tile(x+1, y, rand)
 	try_to_generate_island_tile(x-1, y, rand)
 	try_to_generate_island_tile(x, y+1, rand)
