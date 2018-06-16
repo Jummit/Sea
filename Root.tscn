@@ -11,12 +11,12 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 32, 32 )
+extents = Vector2( 24, 24 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 32, 32 )
+extents = Vector2( 15.96, 15.96 )
 
 [node name="Root" type="Node"]
 
@@ -62,9 +62,8 @@ script/script = ExtResource( 4 )
 
 [node name="Boat" type="AnimatedSprite" parent="Game"]
 
-visibility/visible = false
 transform/pos = Vector2( 16, 16 )
-transform/scale = Vector2( 1.5, 1.5 )
+transform/scale = Vector2( 2, 2 )
 frames = ExtResource( 5 )
 animation = "Ship"
 script/script = ExtResource( 6 )
@@ -97,8 +96,8 @@ autostart = true
 
 [node name="Player" type="KinematicBody2D" parent="Game"]
 
-transform/pos = Vector2( 352, 256 )
-transform/scale = Vector2( 0.99, 0.99 )
+transform/pos = Vector2( 384.08, 223.92 )
+transform/scale = Vector2( 2, 2 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -107,6 +106,11 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 7 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Game/Player"]
+
+frames = ExtResource( 5 )
+animation = "Ship"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Game/Player"]
 
@@ -133,16 +137,16 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
-[node name="Sprite" type="AnimatedSprite" parent="Game/Player"]
-
-transform/scale = Vector2( 2, 2 )
-frames = ExtResource( 5 )
-animation = "Ship"
-
 [connection signal="generated" from="Game/Sea" to="Game/Islands" method="_on_Sea_generated"]
 
 [connection signal="move_in_boat" from="Game/Boat" to="Game/Player" method="_on_Player_move_in_boat"]
 
+[connection signal="move_in_boat" from="Game/Boat" to="Game/Player" method="_on_Boat_move_in_boat"]
+
+[connection signal="body_enter" from="Game/Boat/Area" to="Game/Boat" method="_on_player_enter_boat"]
+
 [connection signal="move_on_land" from="Game/Player" to="Game/Player" method="_on_Player_move_on_land"]
+
+[connection signal="move_on_land" from="Game/Player" to="Game/Boat" method="_on_Player_move_on_land"]
 
 

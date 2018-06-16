@@ -34,6 +34,7 @@ func _process(delta):
 			move_and_slide(toMove)
 			var collider = get_collider()
 			if collider == islands:
+				print("test")
 				emit_signal("move_on_land", toMove.normalized())
 				set_pos(get_pos()+toMove.normalized()*70)
 
