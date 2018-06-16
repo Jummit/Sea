@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 signal move_on_land
 
+var speed = 10000
 var moves = {
 	left = Vector2(-1, 0),
 	right = Vector2(1, 0),
@@ -11,13 +12,10 @@ var moves = {
 
 onready var islands = get_node("../Islands")
 onready var boat = get_node("../Boat")
-var speed = 10000
-
-func move_on_water():
-	set_layer_mask(1)
-	set_collision_mask(1)
 
 func _ready():
+	print(get_collision_mask())
+	print(get_layer_mask())
 	set_process(true)
 
 func _process(delta):
@@ -27,12 +25,16 @@ func _process(delta):
 			move_and_slide(toMove)
 			var collider = get_collider()
 			if collider == islands:
-				move(toMove)
-				emit_signal("move_on_land")
+				emit_signal("move_on_land", toMove.normalized())
+				set_pos(get_pos()+toMove.normalized()*100)
 
 func _on_Player_move_in_boat():
-	pass
+	set_pos(boat.get_pos())
+	print("moved in boat")
+	set_layer_mask(1)
+	set_collision_mask(1)
 
-func _on_Player_move_on_land():
+func _on_Player_move_on_land(move):
+	print("moved on land")
 	set_layer_mask(2)
 	set_collision_mask(2)
