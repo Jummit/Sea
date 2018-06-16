@@ -12,5 +12,5 @@ func _on_player_enter_boat( body ):
 
 func _on_Player_move_on_land(direction):
 	set_pos(player.get_pos()+direction)
-	
+	set_frame(player.sprite.get_frame())
 	show()
