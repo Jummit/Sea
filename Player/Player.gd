@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 signal move_on_land
 
+var mode = "boat"
 var speed = 10000
 var moves = {
 	left = Vector2(-1, 0),
@@ -27,9 +28,15 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
+	var moved = false
 	for i in range(0, moves.size()):
 		if Input.is_action_pressed("movement_"+moves.keys()[i]):
-			sprite.set_frame(animations[moves.keys()[i]])
+			moved = true
+			if mode == "boat":
+				sprite.set_frame(animations[moves.keys()[i]])
+			elif mode == "land":
+				sprite.play()
+
 			var toMove = moves[moves.keys()[i]]*speed*delta
 			move_and_slide(toMove)
 			var collider = get_collider()
@@ -37,17 +44,24 @@ func _process(delta):
 				print("test")
 				emit_signal("move_on_land", toMove.normalized())
 				set_pos(get_pos()+toMove.normalized()*70)
+	
+	if not moved and mode == "land":
+		sprite.stop()
 
 func _on_Player_move_in_boat():
+	mode = "boat"
 	sprite.set_animation("Ship")
 	set_pos(boat.get_pos())
+	sprite.stop()
 	print("moved in boat")
 	set_layer_mask(1)
 	set_collision_mask(1)
 
 func _on_Player_move_on_land(move):
+	mode = "land"
 	sprite.set_animation("Player")
 	sprite.set_frame(0)
+	sprite.play()
 	print("moved on land")
 	set_layer_mask(2)
 	set_collision_mask(2)
