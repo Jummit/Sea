@@ -20,9 +20,25 @@ var animations = {
 	down = 3,
 }
 
+onready var stats = get_node("../UI/Stats")
 onready var sprite = get_node("Sprite")
 onready var islands = get_node("../Islands")
 onready var boat = get_node("../Boat")
+
+func remove_stat(name):
+	var value = 0.01
+	var stat = get_stat(name)
+	if stat-value<=0:
+		set_stat(name, 0)
+		return true
+	else:
+		set_stat(name, stat-value)
+
+func set_stat(name, val):
+	stats.get_node(name).set_value(val)
+
+func get_stat(name):
+	return stats.get_node(name).value
 
 func _ready():
 	print(get_collision_mask())
@@ -35,20 +51,25 @@ func _process(delta):
 		if Input.is_action_pressed("movement_"+moves.keys()[i]):
 			moved = true
 			if mode == "boat":
+				remove_stat("Water")
+				remove_stat("Food")
 				sprite.set_frame(animations[moves.keys()[i]])
+				sprite.stop()
 			elif mode == "land":
+				remove_stat("Food")
+				sprite.set_animation("Player")
 				sprite.play()
 
 			var toMove = moves[moves.keys()[i]]*speed*delta
 			move_and_slide(toMove)
 			var collider = get_collider()
 			if collider == islands:
-				print("test")
 				emit_signal("move_on_land", toMove.normalized())
 				set_pos(get_pos()+toMove.normalized()*70)
 	
 	if not moved and mode == "land":
-		sprite.stop()
+		sprite.set_animation("PlayerIdle")
+		sprite.set_frame(0)
 
 func _on_Player_move_in_boat():
 	speed = boat_speed
