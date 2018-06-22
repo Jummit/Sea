@@ -1,20 +1,20 @@
 [gd_scene load_steps=11 format=1]
 
-[ext_resource path="res://Sea/Tileset.xml" type="TileSet" id=1]
+[ext_resource path="res://Sea/Tileset/Tileset.xml" type="TileSet" id=1]
 [ext_resource path="res://Sea/Sea.gd" type="Script" id=2]
-[ext_resource path="res://Islands/Tileset.xml" type="TileSet" id=3]
+[ext_resource path="res://Islands/Tileset/Tileset.xml" type="TileSet" id=3]
 [ext_resource path="res://Islands/Islands.gd" type="Script" id=4]
-[ext_resource path="res://Player/sprites.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://Player/Sprites/sprites.tres" type="SpriteFrames" id=5]
 [ext_resource path="res://Player/Boat.gd" type="Script" id=6]
 [ext_resource path="res://Player/Player.gd" type="Script" id=7]
-[ext_resource path="res://Stat.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UI/Stats/Stat.tscn" type="PackedScene" id=8]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 24, 24 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 15.96, 15.96 )
@@ -73,7 +73,7 @@ script/script = ExtResource( 6 )
 [node name="Area" type="Area2D" parent="Game/Boat"]
 
 input/pickable = true
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -85,7 +85,7 @@ collision/mask = 2
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Game/Boat/Area"]
 
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
@@ -100,7 +100,7 @@ autostart = true
 
 transform/scale = Vector2( 2, 2 )
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -115,7 +115,7 @@ animation = "Ship"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Game/Player"]
 
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 
@@ -181,7 +181,6 @@ margin/right = 108.0
 margin/bottom = 24.0
 align = 1
 valign = 1
-value = 10
 
 [node name="Water" parent="Game/UI/StatsPanel/Stats" instance=ExtResource( 8 )]
 
@@ -192,7 +191,6 @@ margin/right = 108.0
 margin/bottom = 52.0
 align = 1
 valign = 1
-value = 100
 
 [node name="Food" parent="Game/UI/StatsPanel/Stats" instance=ExtResource( 8 )]
 
@@ -203,7 +201,6 @@ margin/right = 108.0
 margin/bottom = 80.0
 align = 1
 valign = 1
-value = 100
 
 [node name="Sanity" parent="Game/UI/StatsPanel/Stats" instance=ExtResource( 8 )]
 
@@ -214,7 +211,6 @@ margin/right = 108.0
 margin/bottom = 108.0
 align = 1
 valign = 1
-value = 1000
 
 [connection signal="generated" from="Game/Sea" to="Game/Islands" method="_on_Sea_generated"]
 
