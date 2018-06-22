@@ -98,7 +98,6 @@ autostart = true
 
 [node name="Player" type="KinematicBody2D" parent="Game"]
 
-transform/pos = Vector2( 384.08, 223.92 )
 transform/scale = Vector2( 2, 2 )
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
@@ -146,7 +145,7 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 
-[node name="Stats" type="Panel" parent="Game/UI"]
+[node name="StatsPanel" type="Panel" parent="Game/UI"]
 
 anchor/left = 1
 anchor/right = 1
@@ -156,45 +155,63 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 128.0
-margin/top = 0.0
-margin/right = 0.0
+margin/top = 20.0
+margin/right = 20.0
 margin/bottom = 128.0
 
-[node name="Gold" parent="Game/UI/Stats" instance=ExtResource( 8 )]
+[node name="Stats" type="VBoxContainer" parent="Game/UI/StatsPanel"]
 
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 128.0
+margin/right = 0.0
+margin/bottom = 0.0
+alignment = 0
+
+[node name="Gold" parent="Game/UI/StatsPanel/Stats" instance=ExtResource( 8 )]
+
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/right = 108.0
+margin/bottom = 24.0
 align = 1
 valign = 1
 value = 10
 
-[node name="Water" parent="Game/UI/Stats" instance=ExtResource( 8 )]
+[node name="Water" parent="Game/UI/StatsPanel/Stats" instance=ExtResource( 8 )]
 
-margin/left = 0.0
-margin/top = 32.0
-margin/right = 128.0
-margin/bottom = 62.0
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/top = 28.0
+margin/right = 108.0
+margin/bottom = 52.0
 align = 1
 valign = 1
 value = 100
 
-[node name="Food" parent="Game/UI/Stats" instance=ExtResource( 8 )]
+[node name="Food" parent="Game/UI/StatsPanel/Stats" instance=ExtResource( 8 )]
 
-margin/left = 0.0
-margin/top = 64.0
-margin/right = 128.0
-margin/bottom = 94.0
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/top = 56.0
+margin/right = 108.0
+margin/bottom = 80.0
 align = 1
 valign = 1
 value = 100
 
-[node name="Sanity" parent="Game/UI/Stats" instance=ExtResource( 8 )]
+[node name="Sanity" parent="Game/UI/StatsPanel/Stats" instance=ExtResource( 8 )]
 
-margin/left = 0.0
-margin/top = 96.0
-margin/right = 128.0
-margin/bottom = 126.0
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/top = 84.0
+margin/right = 108.0
+margin/bottom = 108.0
 align = 1
 valign = 1
 value = 1000
