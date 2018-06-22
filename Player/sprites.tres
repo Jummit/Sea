@@ -1,0 +1,29 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=1]
+
+[ext_resource path="res://Player/Land/Sprites/idle.tex" type="Texture" id=1]
+[ext_resource path="res://Player/Land/Sprites/walk1.tex" type="Texture" id=2]
+[ext_resource path="res://Player/Land/Sprites/walk2.tex" type="Texture" id=3]
+[ext_resource path="res://Player/Boat/Sprites/left.tex" type="Texture" id=4]
+[ext_resource path="res://Player/Boat/Sprites/right.tex" type="Texture" id=5]
+[ext_resource path="res://Player/Boat/Sprites/up.tex" type="Texture" id=6]
+[ext_resource path="res://Player/Boat/Sprites/down.tex" type="Texture" id=7]
+
+[resource]
+
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "PlayerIdle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Player",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "Ship",
+"speed": 5.0
+} ]
+
