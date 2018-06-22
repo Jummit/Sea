@@ -41,8 +41,6 @@ func get_stat(name):
 	return stats.get_node(name).value
 
 func _ready():
-	print(get_collision_mask())
-	print(get_layer_mask())
 	set_process(true)
 
 func _process(delta):
@@ -77,7 +75,6 @@ func _on_Player_move_in_boat():
 	sprite.set_animation("Ship")
 	set_pos(boat.get_pos())
 	sprite.stop()
-	print("moved in boat")
 	set_layer_mask(1)
 	set_collision_mask(1)
 
@@ -87,6 +84,5 @@ func _on_Player_move_on_land(move):
 	sprite.set_animation("Player")
 	sprite.set_frame(0)
 	sprite.play()
-	print("moved on land")
 	set_layer_mask(2)
 	set_collision_mask(2)
