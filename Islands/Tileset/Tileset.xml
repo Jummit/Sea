@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="TileSet" subresource_count="8" version="2.1" version_name="Godot Engine v2.1.4.stable.official">
 	<ext_resource path="res://Islands/Tileset/Assets/flower.tex" type="Texture" index="2"></ext_resource>
-	<ext_resource path="res://Islands/Tileset/Assets/boulder.tex" type="Texture" index="1"></ext_resource>
-	<ext_resource path="res://Islands/Tileset/Assets/grass.tex" type="Texture" index="0"></ext_resource>
+	<ext_resource path="res://Islands/Tileset/Assets/boulder.tex" type="Texture" index="0"></ext_resource>
+	<ext_resource path="res://Islands/Tileset/Assets/grass.tex" type="Texture" index="1"></ext_resource>
 	<ext_resource path="res://Islands/Tileset/Assets/dunes.tex" type="Texture" index="3"></ext_resource>
-	<resource type="RectangleShape2D" path="local://1">
-		<real name="custom_solver_bias"> 0 </real>
-		<vector2 name="extents"> 32, 32 </vector2>
-
-	</resource>
 	<resource type="ConvexPolygonShape2D" path="local://2">
 		<real name="custom_solver_bias"> 0 </real>
 		<vector2_array name="points" len="6"> 			-0.0437088, -10.2602, 11.9336, -18.4092, 31.4419, -23.3931, 31.1571, 15.6235, -1.45166, 24.7368, -21.6719, 18.1866 </vector2_array>
@@ -19,8 +14,13 @@
 		<vector2_array name="points" len="3"> 			-0.0437088, -10.2602, -21.6719, 18.1866, -20.9599, -9.43825 </vector2_array>
 
 	</resource>
+	<resource type="RectangleShape2D" path="local://1">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2 name="extents"> 32, 32 </vector2>
+
+	</resource>
 	<main_resource>
-		<string name="0/name"> "Land" </string>
+		<string name="0/name"> "Boulder" </string>
 		<resource name="0/texture" external="0">  </resource>
 		<vector2 name="0/tex_offset"> 0, 0 </vector2>
 		<resource name="0/material"></resource>		<color name="0/modulate"> 1, 1, 1, 1 </color>
@@ -28,12 +28,13 @@
 		<vector2 name="0/occluder_offset"> 32, 32 </vector2>
 		<resource name="0/occluder"></resource>		<vector2 name="0/navigation_offset"> 32, 32 </vector2>
 		<resource name="0/navigation"></resource>		<vector2 name="0/shape_offset"> 32, 32 </vector2>
-		<array name="0/shapes" len="1" shared="false">
-			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		<array name="0/shapes" len="2" shared="false">
+			<resource  resource_type="Shape2D" path="local://2">  </resource>
+			<resource  resource_type="Shape2D" path="local://3">  </resource>
 		</array>
 		<vector2 name="0/one_way_collision_direction"> 0, 0 </vector2>
 		<real name="0/one_way_collision_max_depth"> 0 </real>
-		<string name="1/name"> "Boulder" </string>
+		<string name="1/name"> "Land" </string>
 		<resource name="1/texture" external="1">  </resource>
 		<vector2 name="1/tex_offset"> 0, 0 </vector2>
 		<resource name="1/material"></resource>		<color name="1/modulate"> 1, 1, 1, 1 </color>
@@ -41,9 +42,8 @@
 		<vector2 name="1/occluder_offset"> 32, 32 </vector2>
 		<resource name="1/occluder"></resource>		<vector2 name="1/navigation_offset"> 32, 32 </vector2>
 		<resource name="1/navigation"></resource>		<vector2 name="1/shape_offset"> 32, 32 </vector2>
-		<array name="1/shapes" len="2" shared="false">
-			<resource  resource_type="Shape2D" path="local://2">  </resource>
-			<resource  resource_type="Shape2D" path="local://3">  </resource>
+		<array name="1/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
 		</array>
 		<vector2 name="1/one_way_collision_direction"> 0, 0 </vector2>
 		<real name="1/one_way_collision_max_depth"> 0 </real>

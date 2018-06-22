@@ -1,14 +1,9 @@
 [gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://Islands/Tileset/Assets/grass.tex" type="Texture" id=1]
-[ext_resource path="res://Islands/Tileset/Assets/boulder.tex" type="Texture" id=2]
+[ext_resource path="res://Islands/Tileset/Assets/boulder.tex" type="Texture" id=1]
+[ext_resource path="res://Islands/Tileset/Assets/grass.tex" type="Texture" id=2]
 [ext_resource path="res://Islands/Tileset/Assets/flower.tex" type="Texture" id=3]
 [ext_resource path="res://Islands/Tileset/Assets/dunes.tex" type="Texture" id=4]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 32, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
@@ -20,36 +15,17 @@ points = Vector2Array( -0.0437088, -10.2602, 11.9336, -18.4092, 31.4419, -23.393
 custom_solver_bias = 0.0
 points = Vector2Array( -0.0437088, -10.2602, -21.6719, 18.1866, -20.9599, -9.43825 )
 
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
 [node name="Node" type="Node"]
-
-[node name="Land" type="Sprite" parent="."]
-
-transform/pos = Vector2( 32, 32 )
-texture = ExtResource( 1 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Land"]
-
-input/pickable = false
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-collision/layers = 1
-collision/mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Land/StaticBody2D"]
-
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
 
 [node name="Boulder" type="Sprite" parent="."]
 
 transform/pos = Vector2( 96, 32 )
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Boulder"]
 
@@ -73,6 +49,30 @@ build_mode = 0
 polygon = Vector2Array( 11.9336, -18.4092, -0.0437088, -10.2602, -20.9599, -9.43825, -21.6719, 18.1866, -1.45166, 24.7368, 31.1571, 15.6235, 31.4419, -23.3931 )
 shape_range = Vector2( 0, 1 )
 trigger = false
+
+[node name="Land" type="Sprite" parent="."]
+
+transform/pos = Vector2( 32, 32 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Land"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Land/StaticBody2D"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 [node name="Flowers" type="Sprite" parent="."]
 
