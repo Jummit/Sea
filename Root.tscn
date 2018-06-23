@@ -50,9 +50,13 @@ occluder/light_mask = 1
 tile_data = IntArray(  )
 script/script = ExtResource( 4 )
 
+[node name="Villages" type="Node" parent="Game"]
+
 [node name="Boat" parent="Game" instance=ExtResource( 5 )]
 
 [node name="Player" parent="Game" instance=ExtResource( 6 )]
+
+input/pickable = true
 
 [node name="UI" parent="Game" instance=ExtResource( 7 )]
 
