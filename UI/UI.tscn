@@ -18,6 +18,11 @@ script/script = ExtResource( 1 )
 
 [node name="Inventory" parent="." instance=ExtResource( 3 )]
 
+margin/left = 0.0
+margin/top = -1.0
+margin/right = 233.0
+margin/bottom = -371.0
+
 [node name="InventoryButton" type="TextureButton" parent="."]
 
 anchor/left = 1
@@ -40,6 +45,9 @@ params/resize_mode = 0
 params/stretch_mode = 0
 script/script = ExtResource( 5 )
 
+[connection signal="finished" from="Inventory/AnimationPlayer" to="." method="_on_AnimationPlayer_finished"]
+
 [connection signal="toggled" from="InventoryButton" to="InventoryButton" method="_pressed"]
 
 
+[editable path="Inventory"]
