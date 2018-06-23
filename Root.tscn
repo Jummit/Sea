@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Sea/Tileset/Tileset.xml" type="TileSet" id=1]
 [ext_resource path="res://Sea/Sea.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Player/Boat/Boat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Land/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/Items/items.tex" type="Texture" id=8]
+[ext_resource path="res://UI/Items/InventoryButton.gd" type="Script" id=9]
 
 [node name="Root" type="Node"]
 
@@ -52,10 +54,54 @@ script/script = ExtResource( 4 )
 
 [node name="Boat" parent="Game" instance=ExtResource( 5 )]
 
+visibility/visible = true
+
 [node name="Player" parent="Game" instance=ExtResource( 6 )]
 
 [node name="UI" parent="Game" instance=ExtResource( 7 )]
 
+[node name="Stats" parent="Game/UI"]
+
+editor/display_folded = true
+
+[node name="Inventory" parent="Game/UI"]
+
+editor/display_folded = true
+visibility/visible = false
+
+[node name="InventoryButton" type="TextureButton" parent="Game/UI"]
+
+anchor/left = 1
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 96.0
+margin/top = 88.0
+margin/right = 32.0
+margin/bottom = 24.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 8 )
+params/resize_mode = 0
+params/stretch_mode = 0
+script/script = ExtResource( 9 )
+
 [connection signal="generated" from="Game/Sea" to="Game/Islands" method="_on_Sea_generated"]
 
+[connection signal="move_in_boat" from="Game/Boat" to="Game/Player" method="_on_Player_move_in_boat"]
 
+[connection signal="move_on_land" from="Game/Player" to="Game/Boat" method="_on_Player_move_on_land"]
+
+[connection signal="toggled" from="Game/UI/InventoryButton" to="Game/UI/InventoryButton" method="_pressed"]
+
+
+[editable path="Game/Boat"]
+[editable path="Game/Player"]
+[editable path="Game/UI"]
+[editable path="Game/UI/Stats"]
+[editable path="Game/UI/Inventory"]

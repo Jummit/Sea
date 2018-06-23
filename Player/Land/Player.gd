@@ -20,7 +20,7 @@ var animations = {
 	down = 3,
 }
 
-onready var stats = get_node("../UI/StatsPanel/Stats")
+onready var stats = get_node("../UI/Stats/VBoxContainer")
 onready var sprite = get_node("Sprite")
 onready var islands = get_node("../Islands")
 onready var boat = get_node("../Boat")
