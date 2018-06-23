@@ -7,10 +7,8 @@ var inventory_open = false
 
 func open_inventory():
 	inventory_open = true
-	stats.hide()
 	inventory.show()
 
 func close_inventory():
 	inventory_open = false
-	stats.show()
 	inventory.hide()
