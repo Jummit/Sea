@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://UI/Inventory/Inventory.gd" type="Script" id=1]
 [ext_resource path="res://UI/Inventory/Font/Lato-Black.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://UI/Inventory/Items/Item.tscn" type="PackedScene" id=3]
-[ext_resource path="res://UI/Inventory/Items/Map.tex" type="Texture" id=4]
-[ext_resource path="res://UI/Inventory/CloseAnimation.tres" type="Animation" id=5]
-[ext_resource path="res://UI/Inventory/OpenAnimation.tres" type="Animation" id=6]
+[ext_resource path="res://UI/Inventory/CloseAnimation.tres" type="Animation" id=4]
+[ext_resource path="res://UI/Inventory/OpenAnimation.tres" type="Animation" id=5]
 
 [node name="Inventory" type="MarginContainer"]
 
@@ -16,10 +15,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
-margin/top = -9.0
-margin/right = 233.0
-margin/bottom = -379.0
+margin/left = 6.0
+margin/top = 370.0
+margin/right = 227.0
+margin/bottom = 0.0
 custom_constants/margin_right = 80
 custom_constants/margin_top = 80
 custom_constants/margin_left = 80
@@ -181,7 +180,6 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 374.0
 margin/bottom = 14.0
-text = "Item Name"
 align = 1
 valign = 1
 percent_visible = 1.0
@@ -197,7 +195,7 @@ size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 18.0
 margin/right = 374.0
-margin/bottom = 82.0
+margin/bottom = 18.0
 use_top_left = false
 
 [node name="Texture" type="TextureFrame" parent="Panel/VBoxContainer/HBoxContainer/Info/VBoxContainer/CenterContainer"]
@@ -206,11 +204,10 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 155.0
+margin/left = 187.0
 margin/top = 0.0
-margin/right = 219.0
-margin/bottom = 64.0
-texture = ExtResource( 4 )
+margin/right = 187.0
+margin/bottom = 0.0
 stretch_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer/Info/VBoxContainer"]
@@ -220,7 +217,7 @@ focus/stop_mouse = true
 size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
-margin/top = 86.0
+margin/top = 22.0
 margin/right = 374.0
 margin/bottom = 183.0
 custom_constants/margin_right = 20
@@ -237,8 +234,7 @@ size_flags/vertical = 3
 margin/left = 20.0
 margin/top = 20.0
 margin/right = 354.0
-margin/bottom = 77.0
-text = "This item will give you op rights on every server you join."
+margin/bottom = 141.0
 align = 1
 autowrap = true
 clip_text = true
@@ -251,14 +247,12 @@ max_lines_visible = -1
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/CloseAnimation = ExtResource( 5 )
-anims/OpenAnimation = ExtResource( 6 )
+anims/CloseAnimation = ExtResource( 4 )
+anims/OpenAnimation = ExtResource( 5 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
-
-[connection signal="input_event" from="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Map" to="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Map" method="_input_event"]
 
 
 [editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Map"]
