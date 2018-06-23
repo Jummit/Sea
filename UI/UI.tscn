@@ -18,27 +18,15 @@ script/script = ExtResource( 1 )
 
 [node name="Inventory" parent="." instance=ExtResource( 3 )]
 
-margin/left = 0.0
 margin/top = -1.0
-margin/right = 233.0
 margin/bottom = -371.0
 
 [node name="Panel" parent="Inventory"]
 
-margin/right = 153.0
 margin/bottom = 370.0
-
-[node name="Title" parent="Inventory/Panel/VBoxContainer"]
-
-margin/right = 297.0
-
-[node name="Label" parent="Inventory/Panel/VBoxContainer/Title"]
-
-margin/right = 297.0
 
 [node name="HBoxContainer" parent="Inventory/Panel/VBoxContainer"]
 
-margin/right = 297.0
 margin/bottom = 290.0
 
 [node name="Items" parent="Inventory/Panel/VBoxContainer/HBoxContainer"]
@@ -51,35 +39,18 @@ margin/bottom = 183.0
 
 [node name="Info" parent="Inventory/Panel/VBoxContainer/HBoxContainer"]
 
-margin/right = 297.0
 margin/bottom = 223.0
 
 [node name="VBoxContainer" parent="Inventory/Panel/VBoxContainer/HBoxContainer/Info"]
 
-margin/right = 61.0
 margin/bottom = 203.0
-
-[node name="Name" parent="Inventory/Panel/VBoxContainer/HBoxContainer/Info/VBoxContainer"]
-
-margin/right = 41.0
-
-[node name="CenterContainer" parent="Inventory/Panel/VBoxContainer/HBoxContainer/Info/VBoxContainer"]
-
-margin/right = 41.0
-
-[node name="Texture" parent="Inventory/Panel/VBoxContainer/HBoxContainer/Info/VBoxContainer/CenterContainer"]
-
-margin/left = 20.0
-margin/right = 20.0
 
 [node name="MarginContainer" parent="Inventory/Panel/VBoxContainer/HBoxContainer/Info/VBoxContainer"]
 
-margin/right = 41.0
 margin/bottom = 183.0
 
 [node name="Description" parent="Inventory/Panel/VBoxContainer/HBoxContainer/Info/VBoxContainer/MarginContainer"]
 
-margin/right = 21.0
 margin/bottom = 141.0
 
 [node name="InventoryButton" type="TextureButton" parent="."]
@@ -110,3 +81,5 @@ script/script = ExtResource( 5 )
 
 
 [editable path="Inventory"]
+[editable path="Inventory/Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Map"]
+[editable path="Inventory/Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Compass"]
