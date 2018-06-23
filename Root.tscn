@@ -7,8 +7,8 @@
 [ext_resource path="res://Player/Boat/Boat.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Land/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=7]
-[ext_resource path="res://UI/Items/items.tex" type="Texture" id=8]
-[ext_resource path="res://UI/Items/InventoryButton.gd" type="Script" id=9]
+[ext_resource path="res://UI/Inventory/InventoryIcon.tex" type="Texture" id=8]
+[ext_resource path="res://UI/Inventory/InventoryButton.gd" type="Script" id=9]
 
 [node name="Root" type="Node"]
 
@@ -53,8 +53,6 @@ tile_data = IntArray(  )
 script/script = ExtResource( 4 )
 
 [node name="Boat" parent="Game" instance=ExtResource( 5 )]
-
-visibility/visible = true
 
 [node name="Player" parent="Game" instance=ExtResource( 6 )]
 

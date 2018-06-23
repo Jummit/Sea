@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://UI/Lato-Black.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://UI/Inventory/Font/Lato-Black.fnt" type="BitmapFont" id=1]
 [ext_resource path="res://Islands/Tileset/Assets/grass.tex" type="Texture" id=2]
 
 [node name="Inventory" type="MarginContainer"]
