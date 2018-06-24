@@ -3,6 +3,7 @@ extends CanvasLayer
 onready var stats = get_node("Stats")
 onready var inventory = get_node("Inventory")
 onready var inventoryAnimation = inventory.get_node("AnimationPlayer")
+onready var toast = get_node("Toast")
 var inventory_open = false
 
 func open_inventory():
