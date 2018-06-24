@@ -83,14 +83,15 @@ script/script = ExtResource( 5 )
 
 [node name="Toast" type="Panel" parent="."]
 
+rect/scale = Vector2( 0.6, 0.6 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = -66.0
-margin/right = 490.0
-margin/bottom = 0.0
+margin/top = -40.0
+margin/right = 847.0
+margin/bottom = 26.0
 script/script = ExtResource( 6 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Toast"]
@@ -115,7 +116,7 @@ size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 422.0
+margin/right = 779.0
 margin/bottom = 66.0
 custom_fonts/font = ExtResource( 7 )
 text = "You unlocked the Compass!"
@@ -132,9 +133,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 426.0
+margin/left = 783.0
 margin/top = 0.0
-margin/right = 490.0
+margin/right = 847.0
 margin/bottom = 66.0
 use_top_left = false
 
