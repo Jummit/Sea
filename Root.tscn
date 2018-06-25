@@ -74,7 +74,7 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=12]
 
 custom_solver_bias = 0.0
-radius = 50.0
+radius = 30.0
 
 [node name="Root" type="Node"]
 
