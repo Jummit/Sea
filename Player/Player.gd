@@ -24,7 +24,7 @@ func _process(delta):
 		if Input.is_action_pressed("movement_"+moves.keys()[i]):
 			toMove += moves[moves.keys()[i]]
 
-	toControll.move(toMove)
+	toControll.makeMove(toMove)
 
 	var collider = toControll.get_collider()
 

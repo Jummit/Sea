@@ -13,7 +13,7 @@ var animations = {
 	rightup = 7
 }
 
-func move(toMove):
+func makeMove(toMove):
 	move_and_slide(toMove*speed)
 	
 	var animation
