@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+onready var villages = get_node("../../Villages")
 var speed = 100
 
 func makeMove(move):

@@ -213,6 +213,6 @@ _update_shape_index = 0
 
 [connection signal="generated" from="Game/Sea" to="Game/Islands" method="_on_Sea_generated"]
 
-[connection signal="body_enter" from="Game/Player/People/Area" to="Game/Player" method="_on_people_move_to_boat"]
+[connection signal="body_enter" from="Game/Player/People/Area" to="Game/Player" method="_on_people_body_enter"]
 
 

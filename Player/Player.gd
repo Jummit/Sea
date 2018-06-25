@@ -4,6 +4,7 @@ var mode = "boat"
 onready var boat = get_node("Boat")
 onready var people = get_node("People")
 onready var islands = get_node("../Islands")
+onready var villages = get_node("../Villages")
 onready var sea = get_node("../Sea")
 var vehicle
 
@@ -33,6 +34,9 @@ func _process(delta):
 		vehicle = people
 		people.show()
 
-func _on_people_move_to_boat( body ):
-	vehicle = boat
-	people.hide()
+func _on_people_body_enter( body ):
+	if body == boat:
+		vehicle = boat
+		people.hide()
+	elif body.get_parent() == villages:
+		body.loot()
