@@ -17,7 +17,7 @@
 mode = 0
 tile_set = ExtResource( 1 )
 cell/size = Vector2( 64, 64 )
-cell/quadrant_size = 16
+cell/quadrant_size = 4
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 cell/half_offset = 2
 cell/tile_origin = 0
@@ -36,7 +36,7 @@ script/script = ExtResource( 2 )
 mode = 0
 tile_set = ExtResource( 3 )
 cell/size = Vector2( 64, 64 )
-cell/quadrant_size = 16
+cell/quadrant_size = 4
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 cell/half_offset = 2
 cell/tile_origin = 0
