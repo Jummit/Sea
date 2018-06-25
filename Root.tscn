@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=21 format=1]
 
 [ext_resource path="res://Sea/Tileset/Tileset.xml" type="TileSet" id=1]
 [ext_resource path="res://Sea/Sea.gd" type="Script" id=2]
@@ -7,16 +7,64 @@
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Player.gd" type="Script" id=6]
 [ext_resource path="res://Boat/Boat.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Player/People/Sprites/idle.tex" type="Texture" id=8]
+[ext_resource path="res://Player/People/Sprites/walk1.tex" type="Texture" id=9]
+[ext_resource path="res://Player/People/Sprites/walk2.tex" type="Texture" id=10]
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -24.6686, 9.92648, -24.6686, -16.0735, -11.6686, -16.0735, -11.6686, 9.92648 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -3.66856, 10.9265, -24.6686, 9.92648, -11.6686, 9.92648 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -3.66856, 10.9265, -11.6686, 9.92648, -3.66856, 9.92648 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 15.3314, -4.07352, 15.3314, -26.0735, 28.3314, -26.0735, 28.3314, 3.92648, 16.3314, 3.92648 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 15.3314, -4.07352, 16.3314, 3.92648, 15.3314, -3.07352 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -3.66856, -4.07352, 15.3314, -4.07352, 15.3314, -3.07352, 8.33144, -3.07352 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -3.66856, 9.92648, -3.66856, -4.07352, 8.33144, -3.07352, 8.33144, 21.9265 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -3.66856, 10.9265, -3.66856, 9.92648, 8.33144, 21.9265 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -3.66856, 10.9265, 8.33144, 21.9265, -3.66856, 21.9265 )
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Walking",
 "speed": 5.0
@@ -95,7 +143,35 @@ drag_margin/bottom = 0.2
 
 [node name="People" type="KinematicBody2D" parent="Game/Player"]
 
+visibility/visible = false
 input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 3 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 4 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 5 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 6 )
+shapes/4/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 7 )
+shapes/5/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/5/trigger = false
+shapes/6/shape = SubResource( 8 )
+shapes/6/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/6/trigger = false
+shapes/7/shape = SubResource( 9 )
+shapes/7/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/7/trigger = false
+shapes/8/shape = SubResource( 10 )
+shapes/8/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/8/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
@@ -103,13 +179,13 @@ collision/margin = 0.08
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game/Player/People"]
 
 frames = SubResource( 1 )
-animation = "Walking"
+animation = "Idle"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Game/Player/People"]
 
 build_mode = 0
-polygon = Vector2Array(  )
-shape_range = Vector2( -1, -1 )
+polygon = Vector2Array( -24.6686, 9.92648, -24.6686, -16.0735, -11.6686, -16.0735, -11.6686, 9.92648, -3.66856, 9.92648, -3.66856, -4.07352, 15.3314, -4.07352, 15.3314, -26.0735, 28.3314, -26.0735, 28.3314, 3.92648, 16.3314, 3.92648, 15.3314, -3.07352, 8.33144, -3.07352, 8.33144, 21.9265, -3.66856, 21.9265, -3.66856, 10.9265 )
+shape_range = Vector2( 0, 8 )
 trigger = false
 
 [connection signal="generated" from="Game/Sea" to="Game/Islands" method="_on_Sea_generated"]
