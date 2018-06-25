@@ -1,12 +1,27 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Sea/Tileset/Tileset.xml" type="TileSet" id=1]
 [ext_resource path="res://Sea/Sea.gd" type="Script" id=2]
 [ext_resource path="res://Islands/Tileset/Tileset.xml" type="TileSet" id=3]
 [ext_resource path="res://Islands/Islands.gd" type="Script" id=4]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Boat/Boat.tscn" type="PackedScene" id=6]
-[ext_resource path="res://PlayerBoat/PlayerBoat.gd" type="Script" id=7]
+[ext_resource path="res://Player/Player.gd" type="Script" id=6]
+[ext_resource path="res://Boat/Boat.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Player/Boat/PlayerBoat.gd" type="Script" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "Walking",
+"speed": 5.0
+} ]
 
 [node name="Root" type="Node"]
 
@@ -54,12 +69,15 @@ script/script = ExtResource( 4 )
 
 [node name="UI" parent="Game" instance=ExtResource( 5 )]
 
-[node name="PlayerBoat" parent="Game" instance=ExtResource( 6 )]
+[node name="Player" type="Node" parent="Game"]
 
-script/script = ExtResource( 7 )
-speed = 250
+script/script = ExtResource( 6 )
 
-[node name="Camera2D" type="Camera2D" parent="Game/PlayerBoat"]
+[node name="Boat" parent="Game/Player" instance=ExtResource( 7 )]
+
+script/script = ExtResource( 8 )
+
+[node name="Camera2D" type="Camera2D" parent="Game/Player/Boat"]
 
 anchor_mode = 1
 rotating = false
@@ -77,6 +95,25 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
+
+[node name="People" type="KinematicBody2D" parent="Game/Player"]
+
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Game/Player/People"]
+
+frames = SubResource( 1 )
+animation = "Walking"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Game/Player/People"]
+
+build_mode = 0
+polygon = Vector2Array(  )
+shape_range = Vector2( -1, -1 )
+trigger = false
 
 [connection signal="generated" from="Game/Sea" to="Game/Islands" method="_on_Sea_generated"]
 

@@ -13,25 +13,25 @@ var animations = {
 	rightup = 7
 }
 
-func moveBoat(move):
-	move_and_slide(move*speed)
+func move(toMove):
+	move_and_slide(toMove*speed)
 	
 	var animation
-	if move == Vector2(0, 1):
+	if toMove == Vector2(0, 1):
 		animation = "down"
-	elif move == Vector2(0, -1):
+	elif toMove == Vector2(0, -1):
 		animation = "up"
-	elif move == Vector2(1, 0):
+	elif toMove == Vector2(1, 0):
 		animation = "right"
-	elif move == Vector2(-1, 0):
+	elif toMove == Vector2(-1, 0):
 		animation = "left"
-	elif move == Vector2(-1, -1):
+	elif toMove == Vector2(-1, -1):
 		animation = "leftup"
-	elif move == Vector2(1, 1):
+	elif toMove == Vector2(1, 1):
 		animation = "rightdown"
-	elif move == Vector2(-1, 1):
+	elif toMove == Vector2(-1, 1):
 		animation = "leftdown"
-	elif move == Vector2(1, -1):
+	elif toMove == Vector2(1, -1):
 		animation = "rightup"
 
 	if animation != null:
