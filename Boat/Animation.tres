@@ -1,0 +1,20 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=1]
+
+[ext_resource path="res://Boat/Sprites/left.tex" type="Texture" id=1]
+[ext_resource path="res://Boat/Sprites/right.tex" type="Texture" id=2]
+[ext_resource path="res://Boat/Sprites/up.tex" type="Texture" id=3]
+[ext_resource path="res://Boat/Sprites/down.tex" type="Texture" id=4]
+[ext_resource path="res://Boat/Sprites/leftdown.tex" type="Texture" id=5]
+[ext_resource path="res://Boat/Sprites/rightdown.tex" type="Texture" id=6]
+[ext_resource path="res://Boat/Sprites/leftup.tex" type="Texture" id=7]
+[ext_resource path="res://Boat/Sprites/rightup.tex" type="Texture" id=8]
+
+[resource]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "Ship",
+"speed": 5.0
+} ]
+

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://Boat/Boat.gd" type="Script" id=1]
+[ext_resource path="res://Boat/Animation.tres" type="SpriteFrames" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 15.96, 15.96 )
+
+[node name="Boat" type="KinematicBody2D"]
+
+transform/scale = Vector2( 2, 2 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+speed = 10000
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+
+frames = ExtResource( 2 )
+animation = "Ship"
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+
