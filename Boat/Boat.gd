@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 onready var sprite = get_node("Sprite")
-export var speed = 10000
+export var speed = 250
 var animations = {
 	left = 0,
 	right = 1,

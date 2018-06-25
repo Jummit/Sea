@@ -4,9 +4,9 @@
 [ext_resource path="res://Sea/Sea.gd" type="Script" id=2]
 [ext_resource path="res://Islands/Tileset/Tileset.xml" type="TileSet" id=3]
 [ext_resource path="res://Islands/Islands.gd" type="Script" id=4]
-[ext_resource path="res://Player/Boat/Boat.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Player/Land/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Boat/Boat.tscn" type="PackedScene" id=6]
+[ext_resource path="res://PlayerBoat/PlayerBoat.gd" type="Script" id=7]
 
 [node name="Root" type="Node"]
 
@@ -52,18 +52,32 @@ script/script = ExtResource( 4 )
 
 [node name="Villages" type="Node" parent="Game"]
 
-[node name="Boat" parent="Game" instance=ExtResource( 5 )]
+[node name="UI" parent="Game" instance=ExtResource( 5 )]
 
-[node name="Player" parent="Game" instance=ExtResource( 6 )]
+[node name="PlayerBoat" parent="Game" instance=ExtResource( 6 )]
 
-input/pickable = true
+script/script = ExtResource( 7 )
+speed = 250
 
-[node name="UI" parent="Game" instance=ExtResource( 7 )]
+[node name="Camera2D" type="Camera2D" parent="Game/PlayerBoat"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
 
 [connection signal="generated" from="Game/Sea" to="Game/Islands" method="_on_Sea_generated"]
-
-[connection signal="move_in_boat" from="Game/Boat" to="Game/Player" method="_on_Player_move_in_boat"]
-
-[connection signal="move_on_land" from="Game/Player" to="Game/Boat" method="_on_Player_move_on_land"]
 
 

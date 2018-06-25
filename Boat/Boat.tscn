@@ -19,7 +19,7 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-speed = 10000
+speed = 250
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 
