@@ -66,7 +66,6 @@ func _process(delta):
 		elif move == Vector2(-1, 0):
 			animation = "left"
 		elif move == Vector2(-1, -1):
-			print("test")
 			animation = "leftup"
 		elif move == Vector2(1, 1):
 			animation = "rightdown"
@@ -74,6 +73,7 @@ func _process(delta):
 			animation = "leftdown"
 		elif move == Vector2(1, -1):
 			animation = "rightup"
+
 		remove_stat("Water")
 		remove_stat("Food")
 		if animation != null:
