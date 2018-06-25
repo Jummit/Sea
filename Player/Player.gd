@@ -29,4 +29,10 @@ func _process(delta):
 	var collider = toControll.get_collider()
 
 	if collider == islands:
-		pass
+		people.set_global_pos(boat.get_global_pos()+toMove.normalized()*70)
+		toControll = people
+		people.show()
+
+func _on_people_move_to_boat( body ):
+	toControll = boat
+	people.hide()
