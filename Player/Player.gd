@@ -20,6 +20,8 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
+	vehicle.get_node("Camera").make_current()
+	
 	var toMove = Vector2()
 	for i in range(0, moves.size()):
 		if Input.is_action_pressed("movement_"+moves.keys()[i]):
