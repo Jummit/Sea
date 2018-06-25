@@ -18,7 +18,6 @@ func generate_island_tile(x, y, sandy):
 			var village_pos = Vector2(village_x, village_y)
 			village_to_spawn.set_pos(village_pos)
 			get_node("../Villages").add_child(village_to_spawn)
-			print(village_pos)
 		set_cell(x, y, rand_range(0, 3))
 	get_node("../Sea").set_cell(x, y, -1)
 

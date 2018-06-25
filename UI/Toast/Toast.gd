@@ -17,4 +17,5 @@ func _on_Timer_timeout():
 	animation.play()
 
 func _ready():
-	showToast("Find villages to loot and try to survive!", load("res://UI/Inventory/Items/Compass.tex"))
+	print("test")
+	showToast("Welcome!  Find villages to loot and try to survive!", load("res://UI/Inventory/Items/Compass.tex"))

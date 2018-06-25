@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://UI/Toast/Toast.gd" type="Script" id=1]
+[ext_resource path="res://UI/Inventory/Font/Lato-Black.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://UI/Inventory/Items/Compass.tex" type="Texture" id=3]
+[ext_resource path="res://UI/Toast/Hide.tres" type="Animation" id=4]
+[ext_resource path="res://UI/Toast/Show.tres" type="Animation" id=5]
+
+[node name="Toast" type="Panel"]
+
+rect/scale = Vector2( 0.6, 0.6 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -40.0
+margin/right = 847.0
+margin/bottom = 26.0
+script/script = ExtResource( 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+alignment = 0
+
+[node name="Text" type="Label" parent="HBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 779.0
+margin/bottom = 66.0
+custom_fonts/font = ExtResource( 2 )
+text = "You unlocked the Compass!"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 783.0
+margin/top = 0.0
+margin/right = 847.0
+margin/bottom = 66.0
+use_top_left = false
+
+[node name="Icon" type="TextureFrame" parent="HBoxContainer/CenterContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 1.0
+margin/right = 64.0
+margin/bottom = 65.0
+texture = ExtResource( 3 )
+stretch_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Hide = ExtResource( 4 )
+anims/Show = ExtResource( 5 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+

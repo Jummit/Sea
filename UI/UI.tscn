@@ -1,15 +1,11 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://UI/UI.gd" type="Script" id=1]
 [ext_resource path="res://UI/Stats/Stats.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/Inventory/Inventory.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/Inventory/InventoryIcon.tex" type="Texture" id=4]
 [ext_resource path="res://UI/Inventory/InventoryButton.gd" type="Script" id=5]
-[ext_resource path="res://UI/Toast/Toast.gd" type="Script" id=6]
-[ext_resource path="res://UI/Inventory/Font/Lato-Black.fnt" type="BitmapFont" id=7]
-[ext_resource path="res://UI/Inventory/Items/Compass.tex" type="Texture" id=8]
-[ext_resource path="res://UI/Toast/Hide.tres" type="Animation" id=9]
-[ext_resource path="res://UI/Toast/Show.tres" type="Animation" id=10]
+[ext_resource path="res://UI/Toast/Toast.tscn" type="PackedScene" id=6]
 
 [node name="UI" type="CanvasLayer"]
 
@@ -81,101 +77,11 @@ params/resize_mode = 0
 params/stretch_mode = 0
 script/script = ExtResource( 5 )
 
-[node name="Toast" type="Panel" parent="."]
-
-rect/scale = Vector2( 0.6, 0.6 )
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = -40.0
-margin/right = 847.0
-margin/bottom = 26.0
-script/script = ExtResource( 6 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Toast"]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 0.0
-margin/bottom = 0.0
-alignment = 0
-
-[node name="Text" type="Label" parent="Toast/HBoxContainer"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 3
-size_flags/vertical = 3
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 779.0
-margin/bottom = 66.0
-custom_fonts/font = ExtResource( 7 )
-text = "You unlocked the Compass!"
-align = 1
-valign = 1
-autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="CenterContainer" type="CenterContainer" parent="Toast/HBoxContainer"]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 783.0
-margin/top = 0.0
-margin/right = 847.0
-margin/bottom = 66.0
-use_top_left = false
-
-[node name="Icon" type="TextureFrame" parent="Toast/HBoxContainer/CenterContainer"]
-
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 1.0
-margin/right = 64.0
-margin/bottom = 65.0
-texture = ExtResource( 8 )
-stretch_mode = 0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Toast"]
-
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
-anims/Hide = ExtResource( 9 )
-anims/Show = ExtResource( 10 )
-playback/active = true
-playback/speed = 1.0
-blend_times = [  ]
-autoplay = ""
-
-[node name="Timer" type="Timer" parent="Toast"]
-
-process_mode = 1
-wait_time = 5.0
-one_shot = true
-autostart = false
+[node name="Toast" parent="." instance=ExtResource( 6 )]
 
 [connection signal="finished" from="Inventory/AnimationPlayer" to="." method="_on_AnimationPlayer_finished"]
 
 [connection signal="toggled" from="InventoryButton" to="InventoryButton" method="_pressed"]
-
-[connection signal="timeout" from="Toast/Timer" to="Toast" method="_on_Timer_timeout"]
 
 
 [editable path="Inventory"]

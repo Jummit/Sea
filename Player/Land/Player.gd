@@ -24,6 +24,7 @@ onready var stats = get_node("../UI/Stats/VBoxContainer")
 onready var sprite = get_node("Sprite")
 onready var islands = get_node("../Islands")
 onready var boat = get_node("../Boat")
+onready var villages = get_node("../Village")
 
 func remove_stat(name):
 	var value = 0.01
@@ -64,7 +65,11 @@ func _process(delta):
 			if collider == islands:
 				emit_signal("move_on_land", toMove.normalized())
 				set_pos(get_pos()+toMove.normalized()*70)
-	
+			elif collider != null and collider.has_method("loot"):
+				collider.loot()
+			elif collider != null and collider.get_parent() == villages:
+				print("village")
+
 	if not moved and mode == "land":
 		sprite.set_animation("PlayerIdle")
 		sprite.set_frame(0)
