@@ -18,6 +18,10 @@ var animations = {
 	right = 1,
 	up = 2,
 	down = 3,
+	leftdown = 4,
+	rightdown = 5,
+	leftup = 6,
+	rightup = 7
 }
 
 onready var stats = get_node("../UI/Stats/VBoxContainer")
@@ -46,29 +50,48 @@ func _ready():
 
 func _process(delta):
 	var moved = false
+	var move = Vector2()
 	for i in range(0, moves.size()):
 		if Input.is_action_pressed("movement_"+moves.keys()[i]):
-			moved = true
-			if mode == "boat":
-				remove_stat("Water")
-				remove_stat("Food")
-				sprite.set_frame(animations[moves.keys()[i]])
-				sprite.stop()
-			elif mode == "land":
-				remove_stat("Food")
-				sprite.set_animation("Player")
-				sprite.play()
+			move += moves[moves.keys()[i]]
 
-			var toMove = moves[moves.keys()[i]]*speed*delta
-			move_and_slide(toMove)
-			var collider = get_collider()
-			if collider == islands:
-				emit_signal("move_on_land", toMove.normalized())
-				set_pos(get_pos()+toMove.normalized()*70)
-			elif collider != null and collider.has_method("loot"):
-				collider.loot()
-			elif collider != null and collider.get_parent() == villages:
-				print("village")
+	if mode == "boat":
+		var animation
+		if move == Vector2(0, 1):
+			animation = "down"
+		elif move == Vector2(0, -1):
+			animation = "up"
+		elif move == Vector2(1, 0):
+			animation = "right"
+		elif move == Vector2(-1, 0):
+			animation = "left"
+		elif move == Vector2(-1, -1):
+			print("test")
+			animation = "leftup"
+		elif move == Vector2(1, 1):
+			animation = "rightdown"
+		elif move == Vector2(-1, 1):
+			animation = "leftdown"
+		elif move == Vector2(1, -1):
+			animation = "rightup"
+		remove_stat("Water")
+		remove_stat("Food")
+		if animation != null:
+			sprite.set_frame(animations[animation])
+		sprite.stop()
+	elif mode == "land":
+		remove_stat("Food")
+		sprite.set_animation("Player")
+		sprite.play()
+
+	var toMove = move*speed*delta
+	move_and_slide(toMove)
+	var collider = get_collider()
+	if collider == islands:
+		emit_signal("move_on_land", toMove.normalized())
+		set_pos(get_pos()+toMove.normalized()*70)
+	elif collider != null and collider.has_method("loot"):
+		collider.loot()
 
 	if not moved and mode == "land":
 		sprite.set_animation("PlayerIdle")
