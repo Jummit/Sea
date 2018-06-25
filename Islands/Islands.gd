@@ -15,10 +15,12 @@ func generate_island_tile(x, y, sandy):
 			var village_to_spawn = village.instance()
 			var village_x = floor(x*get_cell_size().x)
 			var village_y = floor(y*get_cell_size().y)
-			var village_pos = Vector2(village_x, village_y)
+			var village_pos = Vector2(village_x, village_y)+Vector2(32, 32)
 			village_to_spawn.set_pos(village_pos)
 			get_node("../Villages").add_child(village_to_spawn)
-		set_cell(x, y, rand_range(0, 3))
+			set_cell(x, y, 1)
+		else:
+			set_cell(x, y, rand_range(0, 3))
 	get_node("../Sea").set_cell(x, y, -1)
 
 	try_to_generate_island_tile(x+1, y, sandy)
