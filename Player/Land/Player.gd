@@ -93,7 +93,7 @@ func _process(delta):
 	elif collider != null and collider.has_method("loot"):
 		collider.loot()
 
-	if not moved and mode == "land":
+	if move == Vector2() and mode == "land":
 		sprite.set_animation("PlayerIdle")
 		sprite.set_frame(0)
 
