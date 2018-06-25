@@ -5,7 +5,7 @@ onready var boat = get_node("Boat")
 onready var people = get_node("People")
 onready var islands = get_node("../Islands")
 onready var sea = get_node("../Sea")
-var toControll
+var vehicle
 
 var moves = {
 	left = Vector2(-1, 0),
@@ -15,7 +15,7 @@ var moves = {
 }
 
 func _ready():
-	toControll = boat
+	vehicle = boat
 	set_process(true)
 
 func _process(delta):
@@ -24,15 +24,15 @@ func _process(delta):
 		if Input.is_action_pressed("movement_"+moves.keys()[i]):
 			toMove += moves[moves.keys()[i]]
 
-	toControll.makeMove(toMove)
+	vehicle.makeMove(toMove)
 
-	var collider = toControll.get_collider()
+	var collider = vehicle.get_collider()
 
 	if collider == islands:
 		people.set_global_pos(boat.get_global_pos()+toMove.normalized()*70)
-		toControll = people
+		vehicle = people
 		people.show()
 
 func _on_people_move_to_boat( body ):
-	toControll = boat
+	vehicle = boat
 	people.hide()
