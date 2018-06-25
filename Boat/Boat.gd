@@ -14,6 +14,8 @@ var animations = {
 }
 
 func makeMove(toMove):
+	toMove.x = ceil(toMove.x)
+	toMove.y = ceil(toMove.y)
 	move_and_slide(toMove*speed)
 	
 	var animation

@@ -11,7 +11,7 @@ func generate_island_tile(x, y, sandy):
 	if sandy:
 		set_cell(x, y, 3)
 	else:
-		if rand_range(1, 31) > 30:
+		if rand_range(1, 200) < 2:
 			var village_to_spawn = village.instance()
 			var village_x = floor(x*get_cell_size().x)
 			var village_y = floor(y*get_cell_size().y)

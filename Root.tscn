@@ -30,6 +30,8 @@ occluder/light_mask = 1
 tile_data = IntArray(  )
 script/script = ExtResource( 2 )
 
+[node name="Enemys" type="Node" parent="Game"]
+
 [node name="Islands" type="TileMap" parent="Game"]
 
 mode = 0

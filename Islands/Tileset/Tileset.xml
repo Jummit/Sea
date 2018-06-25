@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="TileSet" subresource_count="7" version="2.1" version_name="Godot Engine v2.1.4.stable.official">
 	<ext_resource path="res://Islands/Tileset/Assets/grass.tex" type="Texture" index="1"></ext_resource>
-	<ext_resource path="res://Islands/Tileset/Assets/boulder.tex" type="Texture" index="0"></ext_resource>
-	<ext_resource path="res://Islands/Tileset/Assets/dunes.tex" type="Texture" index="3"></ext_resource>
 	<ext_resource path="res://Islands/Tileset/Assets/flower.tex" type="Texture" index="2"></ext_resource>
+	<ext_resource path="res://Islands/Tileset/Assets/dunes.tex" type="Texture" index="3"></ext_resource>
+	<ext_resource path="res://Islands/Tileset/Assets/boulder.tex" type="Texture" index="0"></ext_resource>
 	<resource type="RectangleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
 		<vector2 name="extents"> 32, 32 </vector2>
