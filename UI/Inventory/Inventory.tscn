@@ -1,26 +1,27 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://UI/Inventory/Inventory.gd" type="Script" id=1]
 [ext_resource path="res://UI/Inventory/Font/Lato-Black.fnt" type="BitmapFont" id=2]
 [ext_resource path="res://UI/Inventory/Items/Item.tscn" type="PackedScene" id=3]
-[ext_resource path="res://UI/Inventory/Items/Map.gd" type="Script" id=4]
-[ext_resource path="res://UI/Inventory/Items/Compass.gd" type="Script" id=5]
-[ext_resource path="res://UI/Inventory/CloseAnimation.tres" type="Animation" id=6]
-[ext_resource path="res://UI/Inventory/OpenAnimation.tres" type="Animation" id=7]
+[ext_resource path="res://UI/Inventory/Items/Compass.gd" type="Script" id=4]
+[ext_resource path="res://UI/Inventory/Items/Map.gd" type="Script" id=5]
+[ext_resource path="res://UI/Inventory/Items/Wind Amulet.gd" type="Script" id=6]
+[ext_resource path="res://UI/Inventory/CloseAnimation.tres" type="Animation" id=7]
+[ext_resource path="res://UI/Inventory/OpenAnimation.tres" type="Animation" id=8]
 
 [node name="Inventory" type="MarginContainer"]
 
-anchor/top = 1
 anchor/right = 1
 anchor/bottom = 1
+rect/min_size = Vector2( 1024, 485 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
-margin/top = -44.0
-margin/right = 233.0
-margin/bottom = -418.0
+margin/left = 2264.0
+margin/top = 2070.0
+margin/right = -2264.0
+margin/bottom = -1955.0
 custom_constants/margin_right = 80
 custom_constants/margin_top = 80
 custom_constants/margin_left = 80
@@ -34,8 +35,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 80.0
 margin/top = 80.0
-margin/right = 711.0
-margin/bottom = 374.0
+margin/right = 944.0
+margin/bottom = 485.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 
@@ -48,7 +49,7 @@ size_flags/vertical = 3
 margin/left = 1.0
 margin/top = 0.0
 margin/right = 0.0
-margin/bottom = 0.0
+margin/bottom = -23.0
 alignment = 0
 
 [node name="Title" type="MarginContainer" parent="Panel/VBoxContainer"]
@@ -59,7 +60,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 630.0
+margin/right = 863.0
 margin/bottom = 63.0
 custom_constants/margin_top = 20
 custom_constants/margin_bottom = 10
@@ -72,7 +73,7 @@ size_flags/horizontal = 3
 size_flags/vertical = 2
 margin/left = 8.0
 margin/top = 20.0
-margin/right = 630.0
+margin/right = 863.0
 margin/bottom = 53.0
 custom_fonts/font = ExtResource( 2 )
 text = "Items you collected"
@@ -91,8 +92,8 @@ size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 67.0
-margin/right = 630.0
-margin/bottom = 294.0
+margin/right = 863.0
+margin/bottom = 428.0
 alignment = 0
 
 [node name="Items" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
@@ -103,8 +104,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 212.0
-margin/bottom = 227.0
+margin/right = 576.0
+margin/bottom = 361.0
 custom_constants/margin_right = 40
 custom_constants/margin_top = 40
 custom_constants/margin_left = 40
@@ -118,16 +119,34 @@ size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 40.0
 margin/top = 40.0
-margin/right = 172.0
-margin/bottom = 187.0
+margin/right = 536.0
+margin/bottom = 321.0
 columns = 5
+
+[node name="Compass" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/right = 96.0
+margin/bottom = 91.0
+
+[node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Compass"]
+
+text = "Displays a pointer that points in the direction the last village you found was."
+
+[node name="Action" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Compass"]
+
+script/script = ExtResource( 4 )
 
 [node name="Map" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 anchor/right = 0
 anchor/bottom = 0
-margin/right = 64.0
-margin/bottom = 64.0
+margin/left = 100.0
+margin/right = 196.0
+margin/bottom = 91.0
 
 [node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Map"]
 
@@ -135,34 +154,201 @@ text = "Displays a Minimap at the top left of your screen. Click it to show a bi
 
 [node name="Action" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Map"]
 
-script/script = ExtResource( 4 )
+script/script = ExtResource( 5 )
 
-[node name="Compass" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
+[node name="Wind Amulet" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 anchor/right = 0
 anchor/bottom = 0
-margin/left = 68.0
-margin/right = 132.0
-margin/bottom = 64.0
+margin/left = 200.0
+margin/right = 296.0
+margin/bottom = 91.0
+script/script = ExtResource( 6 )
 
-[node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Compass"]
+[node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Wind Amulet"]
 
-text = "Displays a pointer that shows the direction the last village you found was."
+text = "Makes you a little bit faster in when traveling with a boat."
 
-[node name="Action" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Compass"]
+[node name="Fire Amulet" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
-script/script = ExtResource( 5 )
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 300.0
+margin/right = 396.0
+margin/bottom = 91.0
+
+[node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Fire Amulet"]
+
+text = "It has a very hot rock that glows like magma bound to it."
+
+[node name="Water Amulet" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 400.0
+margin/right = 496.0
+margin/bottom = 91.0
+
+[node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Water Amulet"]
+
+text = "When you hold it on your ear, it makes a sound like a shell.
+
+Makes you loose half of the water you normally would."
+
+[node name="Earth Amulet" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/top = 95.0
+margin/right = 96.0
+margin/bottom = 186.0
+
+[node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Earth Amulet"]
+
+text = "Enables you to walk faster on land.
+
+It smells like dust and dirt. Somehow this reminds you of your old home..."
+
+[node name="Sword" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 100.0
+margin/top = 95.0
+margin/right = 196.0
+margin/bottom = 186.0
+
+[node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Sword"]
+
+text = "You can attack castles with this. You may still loose some of your crew though."
+
+[node name="Cannon" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 200.0
+margin/top = 95.0
+margin/right = 296.0
+margin/bottom = 186.0
+
+[node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Cannon"]
+
+text = "Enables you to shoot by clicking when in a boat. Attack some pirates and steal their treasure!"
+
+[node name="Storage Crate" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 300.0
+margin/top = 95.0
+margin/right = 396.0
+margin/bottom = 186.0
+
+[node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Storage Crate"]
+
+text = "Makes you start a run with more food and water."
+
+[node name="Treasure Chest" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 400.0
+margin/top = 95.0
+margin/right = 496.0
+margin/bottom = 186.0
+
+[node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Treasure Chest"]
+
+text = "Makes you start a run with more gold."
+
+[node name="Saphire" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/top = 190.0
+margin/right = 96.0
+margin/bottom = 281.0
+
+[node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Saphire"]
+
+text = "You never saw a crystal that big before! Maybe it is fake?"
+
+[node name="Diamond" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 100.0
+margin/top = 190.0
+margin/right = 196.0
+margin/bottom = 281.0
+
+[node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Diamond"]
+
+text = "A glass clear, shiny and smooth diamond!"
+
+[node name="Dwarf Crystall" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 200.0
+margin/top = 190.0
+margin/right = 296.0
+margin/bottom = 281.0
+
+[node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Dwarf Crystall"]
+
+text = "A red gem that was very carefully carved out of a rock."
+
+[node name="Elven Gem" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 300.0
+margin/top = 190.0
+margin/right = 396.0
+margin/bottom = 281.0
+
+[node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Elven Gem"]
+
+text = "Energy flows trought your body when you hold this gem. It has a very soft surface, like a leaf."
+
+[node name="Unsolvable Puzzle" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 400.0
+margin/top = 190.0
+margin/right = 496.0
+margin/bottom = 281.0
+
+[node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Unsolvable Puzzle"]
+
+text = "A odd shaped box with wooden gears and some dangling cubes on it. You just cant figure out how to open it..."
 
 [node name="Info" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 3
 size_flags/vertical = 3
-margin/left = 216.0
+margin/left = 580.0
 margin/top = 0.0
-margin/right = 630.0
-margin/bottom = 227.0
+margin/right = 863.0
+margin/bottom = 361.0
 custom_constants/margin_right = 20
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
@@ -176,8 +362,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 20.0
 margin/top = 20.0
-margin/right = 394.0
-margin/bottom = 207.0
+margin/right = 263.0
+margin/bottom = 341.0
 alignment = 0
 
 [node name="Name" type="Label" parent="Panel/VBoxContainer/HBoxContainer/Info/VBoxContainer"]
@@ -188,7 +374,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 374.0
+margin/right = 243.0
 margin/bottom = 14.0
 align = 1
 valign = 1
@@ -204,7 +390,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 18.0
-margin/right = 374.0
+margin/right = 243.0
 margin/bottom = 18.0
 use_top_left = false
 
@@ -214,9 +400,9 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 187.0
+margin/left = 121.0
 margin/top = 0.0
-margin/right = 187.0
+margin/right = 121.0
 margin/bottom = 0.0
 stretch_mode = 0
 
@@ -228,8 +414,8 @@ size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 22.0
-margin/right = 374.0
-margin/bottom = 187.0
+margin/right = 243.0
+margin/bottom = 321.0
 custom_constants/margin_right = 20
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
@@ -243,8 +429,8 @@ size_flags/horizontal = 2
 size_flags/vertical = 3
 margin/left = 20.0
 margin/top = 20.0
-margin/right = 354.0
-margin/bottom = 145.0
+margin/right = 223.0
+margin/bottom = 279.0
 align = 1
 autowrap = true
 clip_text = true
@@ -257,13 +443,26 @@ max_lines_visible = -1
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/CloseAnimation = ExtResource( 6 )
-anims/OpenAnimation = ExtResource( 7 )
+anims/CloseAnimation = ExtResource( 7 )
+anims/OpenAnimation = ExtResource( 8 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
 
-[editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Map"]
 [editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Compass"]
+[editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Map"]
+[editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Wind Amulet"]
+[editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Fire Amulet"]
+[editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Water Amulet"]
+[editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Earth Amulet"]
+[editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Sword"]
+[editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Cannon"]
+[editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Storage Crate"]
+[editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Treasure Chest"]
+[editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Saphire"]
+[editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Diamond"]
+[editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Dwarf Crystall"]
+[editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Elven Gem"]
+[editable path="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Unsolvable Puzzle"]

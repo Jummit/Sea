@@ -8,6 +8,24 @@ onready var animation = get_node("AnimationPlayer")
 onready var ui = get_parent()
 var is_open = false
 
+func is_every_item_acquired():
+	var ever_item_acquired = true
+	for item in items.get_children():
+		if not item.acquired:
+			ever_item_acquired = false
+	return ever_item_acquired
+
+func get_items():
+	var itemlist = []
+	for item in items.get_children():
+		print(item.get_name())
+		itemlist.append(item.get_name())
+	
+	return itemlist
+
+func acquire_item(item):
+	items.get_node(item).acquire()
+
 func open():
 	if not is_open and animation.get_current_animation_length() == animation.get_current_animation_pos():
 		animation.set_current_animation("OpenAnimation")

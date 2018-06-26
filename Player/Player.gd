@@ -44,6 +44,12 @@ func _on_people_body_enter( body ):
 	elif body.get_parent() == villages:
 		body.loot()
 
+func restore_stats():
+	if stats.gold.value >= 1:
+		stats.gold.decrease(1)
+		stats.food.reset()
+		stats.water.reset()
+
 func eat():
 	stats.sanity.decrease(1)
 	stats.food.decrease(1)
