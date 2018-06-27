@@ -6,7 +6,7 @@ onready var people = get_node("People")
 onready var islands = get_node("../Islands")
 onready var villages = get_node("../Villages")
 onready var sea = get_node("../Sea")
-onready var stats = get_node("../UI/Stats")
+onready var stats = get_node("../UI/Panel/VBoxContainer/Stats")
 var vehicle
 
 var moves = {

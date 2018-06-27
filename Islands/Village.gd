@@ -6,7 +6,7 @@ onready var sprite = get_node("Sprite")
 onready var particles = get_node("Particles")
 onready var toast = get_node("../../UI/Toast")
 onready var player = get_node("../../Player")
-onready var stats = get_node("../../UI/Stats")
+onready var stats = get_node("../../UI/Panel/VBoxContainer/Stats")
 onready var inventory = get_node("../../UI/Inventory")
 
 func loot():
