@@ -1,6 +1,7 @@
 extends Label
 
 export var value = 0
+export var limit = -1
 
 func _ready():
 	set_value(value)
@@ -16,11 +17,15 @@ func decrease(val):
 	update_text()
 
 func add(val):
-	value += val
-	update_text()
+	if limit == -1 or value+val<=limit:
+		value += val
+		update_text()
 
 func set_value(val):
-	value = val
+	if limit != -1 and val>limit:
+		value = limit
+	else:
+		value = val
 	update_text()
 
 func reset():

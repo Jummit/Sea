@@ -20,7 +20,6 @@ func loot():
 			var rand = ceil(rand_range(1, 4)-1)
 			if rand == 1:
 				if stats.gold.value >= 1:
-					player.restore_stats()
 					stats.gold.decrease(1)
 					stats.food.add(30)
 					stats.water.add(30)
@@ -56,6 +55,7 @@ func loot():
 				stats.crew.add(1)
 		else:
 			toast.showToast("A crewmen was attacked and killed by pidgeons! 0.0", lootedTexture)
+			stats.sanity.decrease(10)
 			stats.crew.decrease(1)
 
 		looted = true

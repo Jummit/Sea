@@ -18,7 +18,6 @@ func is_every_item_acquired():
 func get_items():
 	var itemlist = []
 	for item in items.get_children():
-		print(item.get_name())
 		itemlist.append(item.get_name())
 	
 	return itemlist
