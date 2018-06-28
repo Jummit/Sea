@@ -9,6 +9,7 @@ onready var player = get_node("../../Player")
 onready var stats = get_node("../../UI/Panel/VBoxContainer/Stats")
 
 func loot():
+	randomize()
 	var inventory = get_node("/root/Root/CanvasLayer/Inventory")
 	if not looted:
 		lootedTexture.set_size_override(Vector2(64, 64))
