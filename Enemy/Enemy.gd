@@ -1,6 +1,7 @@
 extends "res://Boat/Boat.gd"
 
 var direction = Vector2()
+onready var player = get_node("../../Player")
 
 func _ready():
 	set_process(true)
@@ -16,3 +17,9 @@ func _process(delta):
 		direction = Vector2(floor(rand_range(1, 3)-rand_range(1, 2)), floor(rand_range(1, 3)-rand_range(1, 2)))
 		if rand_range(1, 60) < 2:
 			direction = null
+
+func _on_AngerArea_body_enter( body ):
+	if body.get_parent() == player:
+		print("Player detected!")
+		direction = Vector2()
+		shootTo(body.get_global_pos())

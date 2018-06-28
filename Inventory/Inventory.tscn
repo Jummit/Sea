@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=1]
 
-[ext_resource path="res://UI/Inventory/Inventory.gd" type="Script" id=1]
-[ext_resource path="res://UI/Inventory/Font/Lato-Black.fnt" type="BitmapFont" id=2]
-[ext_resource path="res://UI/Inventory/Items/Item.tscn" type="PackedScene" id=3]
-[ext_resource path="res://UI/Inventory/Items/Compass.gd" type="Script" id=4]
-[ext_resource path="res://UI/Inventory/Items/Map.gd" type="Script" id=5]
-[ext_resource path="res://UI/Inventory/Items/Wind Amulet.gd" type="Script" id=6]
-[ext_resource path="res://UI/Inventory/CloseAnimation.tres" type="Animation" id=7]
-[ext_resource path="res://UI/Inventory/OpenAnimation.tres" type="Animation" id=8]
+[ext_resource path="res://Inventory/Inventory.gd" type="Script" id=1]
+[ext_resource path="res://Inventory/Font/Lato-Black.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://Inventory/Items/Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Inventory/Items/Compass.gd" type="Script" id=4]
+[ext_resource path="res://Inventory/Items/Map.gd" type="Script" id=5]
+[ext_resource path="res://Inventory/Items/Wind Amulet.gd" type="Script" id=6]
+[ext_resource path="res://Inventory/CloseAnimation.tres" type="Animation" id=7]
+[ext_resource path="res://Inventory/OpenAnimation.tres" type="Animation" id=8]
 
 [node name="Inventory" type="MarginContainer"]
 
@@ -113,6 +113,7 @@ custom_constants/margin_bottom = 40
 
 [node name="GridContainer" type="GridContainer" parent="Panel/VBoxContainer/HBoxContainer/Items"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3

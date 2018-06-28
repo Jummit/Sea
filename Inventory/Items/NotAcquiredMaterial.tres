@@ -1,6 +1,6 @@
 [gd_resource type="CanvasItemMaterial" load_steps=2 format=1]
 
-[ext_resource path="res://UI/Inventory/NotAcquiredShader.tres" type="Shader" id=1]
+[ext_resource path="res://Inventory/NotAcquiredShader.tres" type="Shader" id=1]
 
 [resource]
 

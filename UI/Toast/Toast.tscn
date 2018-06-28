@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://UI/Toast/Toast.gd" type="Script" id=1]
-[ext_resource path="res://UI/Inventory/Font/Lato-Black.fnt" type="BitmapFont" id=2]
-[ext_resource path="res://UI/Inventory/Items/Compass.tex" type="Texture" id=3]
+[ext_resource path="res://Inventory/Font/Lato-Black.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://Inventory/Items/Compass.tex" type="Texture" id=3]
 [ext_resource path="res://UI/Toast/Hide.tres" type="Animation" id=4]
 [ext_resource path="res://UI/Toast/Show.tres" type="Animation" id=5]
 

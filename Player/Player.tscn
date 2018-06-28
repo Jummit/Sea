@@ -22,7 +22,7 @@ points = Vector2Array( 6, 14, 6, 22, -2, 22, -2, 14 )
 custom_solver_bias = 0.0
 points = Vector2Array( 6, 14, 6, 22, -2, 22, -2, 14 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=4]
 
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
@@ -36,7 +36,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=5]
 
 custom_solver_bias = 0.0
 radius = 30.0
@@ -89,13 +89,13 @@ script/script = ExtResource( 3 )
 
 transform/pos = Vector2( -1.90735e-06, -2.86102e-06 )
 transform/scale = Vector2( 2, 2 )
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "Idle"
 
 [node name="Area" type="Area2D" parent="People"]
 
 input/pickable = true
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 5 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -105,7 +105,7 @@ angular_damp = 1.0
 
 [node name="CollisionShape" type="CollisionShape2D" parent="People/Area"]
 
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 trigger = false
 _update_shape_index = 0
 

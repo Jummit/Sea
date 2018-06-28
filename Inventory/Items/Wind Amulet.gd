@@ -1,4 +1,4 @@
-extends "res://UI/Inventory/Items/Item.gd"
+extends "res://Inventory/Items/Item.gd"
 
 onready var boat = get_node("/root/Root/Game/Player/Boat")
 

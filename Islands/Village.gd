@@ -7,9 +7,9 @@ onready var particles = get_node("Particles")
 onready var toast = get_node("../../UI/Toast")
 onready var player = get_node("../../Player")
 onready var stats = get_node("../../UI/Panel/VBoxContainer/Stats")
-onready var inventory = get_node("../../UI/Inventory")
 
 func loot():
+	var inventory = get_node("/root/Root/CanvasLayer/Inventory")
 	if not looted:
 		lootedTexture.set_size_override(Vector2(64, 64))
 		sprite.set_texture(lootedTexture)

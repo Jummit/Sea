@@ -10,10 +10,10 @@ func _ready():
 	set_process(true)
 	title.set_text(get_name())
 
-	var image = load("res://UI/Inventory/Items/"+get_name()+".tex")
+	var image = load("res://Inventory/Items/"+get_name()+".tex")
 	if image != null:
 		texture.set_texture(image)
-	texture.set_material(load("res://UI/Inventory/Items/NotAcquiredMaterial.tres"))
+	texture.set_material(load("res://Inventory/Items/NotAcquiredMaterial.tres"))
 
 func acquire():
 	acquired = true
