@@ -51,6 +51,12 @@ func restore_stats():
 		stats.water.reset()
 
 func eat():
-	stats.sanity.add(1)
-	stats.food.decrease(1)
-	stats.water.decrease(1)
+	if stats.sanity.value <= 0:
+		pass
+	else:
+		if stats.food.value <= 0 or stats.food.value <= 0:
+			stats.sanity.decrease(1)
+		else:
+			stats.sanity.add(1)
+			stats.food.decrease(1)
+			stats.water.decrease(1)
