@@ -1,15 +1,57 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=23 format=1]
 
 [ext_resource path="res://Sea/Tileset/Tileset.xml" type="TileSet" id=1]
 [ext_resource path="res://Sea/Sea.gd" type="Script" id=2]
 [ext_resource path="res://Islands/Tileset/Tileset.xml" type="TileSet" id=3]
 [ext_resource path="res://Islands/Islands.gd" type="Script" id=4]
-[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Rain/Rain.gd" type="Script" id=7]
-[ext_resource path="res://Rain/rainparticle.tex" type="Texture" id=8]
+[ext_resource path="res://Player/Player.gd" type="Script" id=5]
+[ext_resource path="res://Boat/Boat.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Player/People/People.gd" type="Script" id=7]
+[ext_resource path="res://Player/People/Sprites/Idle.tex" type="Texture" id=8]
+[ext_resource path="res://Player/People/Sprites/Walk1.tex" type="Texture" id=9]
+[ext_resource path="res://Player/People/Sprites/Walk2.tex" type="Texture" id=10]
+[ext_resource path="res://UI/plankboard.tex" type="Texture" id=11]
+[ext_resource path="res://UI/Stats/Stats.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Inventory/InventoryIcon.tex" type="Texture" id=13]
+[ext_resource path="res://UI/Toast/Toast.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Rain/Rain.gd" type="Script" id=15]
+[ext_resource path="res://Rain/rainparticle.tex" type="Texture" id=16]
 
-[sub_resource type="ColorRamp" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 6, 14, 6, 22, -2, 22, -2, 14 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 6, 14, 6, 22, -2, 22, -2, 14 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 6, 14, 6, 22, -2, 22, -2, 14 )
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Walking",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=5]
+
+custom_solver_bias = 0.0
+radius = 30.0
+
+[sub_resource type="ColorRamp" id=6]
 
 offsets = FloatArray( 0, 0.619883, 0.77193, 1 )
 colors = ColorArray( 1, 1, 1, 1, 0.900187, 0.900187, 0.900187, 1, 0.753404, 0.753404, 0.753404, 1, 0.503906, 0.503906, 0.503906, 1 )
@@ -58,11 +100,214 @@ script/script = ExtResource( 4 )
 
 [node name="Villages" type="Node" parent="."]
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
+[node name="Player" type="Node" parent="."]
+
+editor/display_folded = true
+script/script = ExtResource( 5 )
+
+[node name="Boat" parent="Player" instance=ExtResource( 6 )]
+
+speed = 100
+
+[node name="Camera" type="Camera2D" parent="Player/Boat"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+[node name="People" type="KinematicBody2D" parent="Player"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 20, -18 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 2 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 3 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, -20, -12 )
+shapes/2/trigger = false
+collision/layers = 2
+collision/mask = 2
+collision/margin = 0.08
+script/script = ExtResource( 7 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Player/People"]
+
+transform/pos = Vector2( -1.90735e-06, -2.86102e-06 )
+transform/scale = Vector2( 2, 2 )
+frames = SubResource( 4 )
+animation = "Idle"
+
+[node name="Area" type="Area2D" parent="Player/People"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Player/People/Area"]
+
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Camera" type="Camera2D" parent="Player/People"]
+
+anchor_mode = 1
+rotating = false
+current = false
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+
+[node name="RightCollision" type="CollisionPolygon2D" parent="Player/People"]
+
+transform/pos = Vector2( 20, -18 )
+build_mode = 0
+polygon = Vector2Array( -2, 14, -2, 22, 6, 22, 6, 14 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[node name="MiddleCollision" type="CollisionPolygon2D" parent="Player/People"]
+
+build_mode = 0
+polygon = Vector2Array( -2, 14, -2, 22, 6, 22, 6, 14 )
+shape_range = Vector2( 1, 1 )
+trigger = false
+
+[node name="LeftCollision" type="CollisionPolygon2D" parent="Player/People"]
+
+transform/pos = Vector2( -20, -12 )
+build_mode = 0
+polygon = Vector2Array( -2, 14, -2, 22, 6, 22, 6, 14 )
+shape_range = Vector2( 2, 2 )
+trigger = false
+
+[node name="EatTimer" type="Timer" parent="Player"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = false
+autostart = true
 
 [node name="CannonBalls" type="Node" parent="."]
 
-[node name="UI" parent="." instance=ExtResource( 6 )]
+[node name="UI" type="CanvasLayer" parent="."]
+
+editor/display_folded = true
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="Panel" type="Panel" parent="UI"]
+
+visibility/self_opacity = 0.0
+anchor/left = 1
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 152.0
+margin/top = 20.0
+margin/right = 24.0
+margin/bottom = 276.0
+
+[node name="TextureFrame" type="TextureFrame" parent="UI/Panel"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 128.0
+margin/bottom = 256.0
+texture = ExtResource( 11 )
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Panel"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 22.0
+margin/right = 128.0
+margin/bottom = 256.0
+alignment = 0
+
+[node name="Stats" parent="UI/Panel/VBoxContainer" instance=ExtResource( 12 )]
+
+visibility/self_opacity = 0.0
+anchor/left = 0
+anchor/right = 0
+rect/min_size = Vector2( 128, 150 )
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 128.0
+margin/bottom = 150.0
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/Panel/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 154.0
+margin/right = 128.0
+margin/bottom = 234.0
+use_top_left = false
+
+[node name="InventoryButton" type="TextureButton" parent="UI/Panel/VBoxContainer/CenterContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 8.0
+margin/top = 0.0
+margin/right = 120.0
+margin/bottom = 80.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 13 )
+params/resize_mode = 0
+params/stretch_mode = 3
+
+[node name="Toast" parent="UI" instance=ExtResource( 14 )]
 
 [node name="Rain" type="CanvasLayer" parent="."]
 
@@ -70,7 +315,7 @@ layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
-script/script = ExtResource( 7 )
+script/script = ExtResource( 15 )
 
 [node name="Particles" type="Particles2D" parent="Rain"]
 
@@ -80,7 +325,7 @@ config/lifetime = 0.4
 config/process_mode = 1
 config/half_extents = Vector2( 1200, 1200 )
 config/local_space = false
-config/texture = ExtResource( 8 )
+config/texture = ExtResource( 16 )
 params/direction = 30.0
 params/spread = 0.0
 params/linear_velocity = 500.0
@@ -97,7 +342,7 @@ params/final_size = 1.0
 params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
-color/color_ramp = SubResource( 1 )
+color/color_ramp = SubResource( 6 )
 
 [node name="Timer" type="Timer" parent="Rain"]
 
@@ -107,5 +352,9 @@ one_shot = false
 autostart = true
 
 [connection signal="generated" from="Sea" to="Islands" method="_on_Sea_generated"]
+
+[connection signal="body_enter" from="Player/People/Area" to="Player" method="_on_people_body_enter"]
+
+[connection signal="timeout" from="Player/EatTimer" to="Player" method="eat"]
 
 
