@@ -8,6 +8,7 @@ onready var villages = get_node("../Villages")
 onready var sea = get_node("../Sea")
 onready var stats = get_node("../UI/Panel/VBoxContainer/Stats")
 var vehicle
+signal died
 
 var moves = {
 	left = Vector2(-1, 0),
