@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://Inventory/Font/Lato-Black.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://DeathScreen/DeathScreen.gd" type="Script" id=1]
+[ext_resource path="res://Inventory/Font/Lato-Black.fnt" type="BitmapFont" id=2]
 
 [node name="DeathScreen" type="CanvasLayer"]
 
@@ -8,6 +9,7 @@ layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
+script/script = ExtResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 
@@ -51,7 +53,7 @@ margin/right = 0.0
 margin/bottom = 0.0
 alignment = 0
 
-[node name="Death" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="DeathMessage" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -61,7 +63,7 @@ margin/left = 0.0
 margin/top = 0.0
 margin/right = 864.0
 margin/bottom = 239.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "You died by by pidgeons."
 align = 1
 valign = 1
@@ -79,7 +81,7 @@ margin/left = 0.0
 margin/top = 243.0
 margin/right = 864.0
 margin/bottom = 276.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "Items you collected in this run:"
 align = 1
 valign = 1
@@ -87,7 +89,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="Items" type="MarginContainer" parent="MarginContainer/Panel/VBoxContainer"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -101,16 +103,16 @@ custom_constants/margin_right = 40
 custom_constants/margin_left = 40
 custom_constants/margin_bottom = 40
 
-[node name="ItemList" type="ItemList" parent="MarginContainer/Panel/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Items"]
 
-rect/min_size = Vector2( 0, 200 )
 focus/ignore_mouse = false
-focus/stop_mouse = true
+focus/stop_mouse = false
 size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 40.0
 margin/top = 0.0
 margin/right = 824.0
 margin/bottom = 200.0
+alignment = 0
 
 

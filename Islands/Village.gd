@@ -58,5 +58,7 @@ func loot():
 			toast.showToast("A crewmen was attacked and killed by pidgeons! 0.0", lootedTexture)
 			stats.sanity.decrease(10)
 			stats.crew.decrease(1)
+			if stats.crew.value <= 0:
+				player.die("You lost all of your crew.")
 
 		looted = true

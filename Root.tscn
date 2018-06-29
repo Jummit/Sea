@@ -18,6 +18,4 @@ scale = Vector2( 1, 1 )
 
 [node name="Game" type="Node" parent="."]
 
-[node name="DeathScreen" type="Node" parent="."]
-
 

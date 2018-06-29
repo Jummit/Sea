@@ -8,7 +8,6 @@ onready var villages = get_node("../Villages")
 onready var sea = get_node("../Sea")
 onready var stats = get_node("../UI/Panel/VBoxContainer/Stats")
 var vehicle
-signal died
 
 var moves = {
 	left = Vector2(-1, 0),
@@ -53,7 +52,7 @@ func restore_stats():
 
 func eat():
 	if stats.sanity.value <= 0:
-		pass
+		die("Your crew went insane!")
 	else:
 		if stats.food.value <= 0 or stats.food.value <= 0:
 			stats.sanity.decrease(1)
@@ -61,3 +60,8 @@ func eat():
 			stats.sanity.add(1)
 			stats.food.decrease(1)
 			stats.water.decrease(1)
+
+func die(message):
+	var newdeatscreen = load("res://DeathScreen/DeathScreen.tscn").instance()
+	newdeatscreen.message = message
+	get_node("/root/Root/CanvasLayer").add_child(newdeatscreen)
