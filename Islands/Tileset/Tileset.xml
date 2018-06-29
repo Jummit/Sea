@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="TileSet" subresource_count="7" version="2.1" version_name="Godot Engine v2.1.4.stable.official">
-	<ext_resource path="res://Islands/Tileset/Assets/grass.tex" type="Texture" index="1"></ext_resource>
-	<ext_resource path="res://Islands/Tileset/Assets/flower.tex" type="Texture" index="2"></ext_resource>
-	<ext_resource path="res://Islands/Tileset/Assets/dunes.tex" type="Texture" index="3"></ext_resource>
-	<ext_resource path="res://Islands/Tileset/Assets/boulder.tex" type="Texture" index="0"></ext_resource>
+<resource_file type="TileSet" subresource_count="5" version="2.1" version_name="Godot Engine v2.1.4.stable.official">
+	<ext_resource path="res://Islands/Tileset/Assets/grass.tex" type="Texture" index="0"></ext_resource>
+	<ext_resource path="res://Islands/Tileset/Assets/flower.tex" type="Texture" index="1"></ext_resource>
 	<resource type="RectangleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
 		<vector2 name="extents"> 32, 32 </vector2>
@@ -29,7 +27,7 @@
 		<vector2 name="0/one_way_collision_direction"> 0, 0 </vector2>
 		<real name="0/one_way_collision_max_depth"> 0 </real>
 		<string name="1/name"> "Land" </string>
-		<resource name="1/texture" external="1">  </resource>
+		<resource name="1/texture" external="0">  </resource>
 		<vector2 name="1/tex_offset"> 0, 0 </vector2>
 		<resource name="1/material"></resource>		<color name="1/modulate"> 1, 1, 1, 1 </color>
 		<rect2 name="1/region"> 0, 0, 64, 64 </rect2>
@@ -42,7 +40,7 @@
 		<vector2 name="1/one_way_collision_direction"> 0, 0 </vector2>
 		<real name="1/one_way_collision_max_depth"> 0 </real>
 		<string name="2/name"> "Flowers" </string>
-		<resource name="2/texture" external="2">  </resource>
+		<resource name="2/texture" external="1">  </resource>
 		<vector2 name="2/tex_offset"> 0, 0 </vector2>
 		<resource name="2/material"></resource>		<color name="2/modulate"> 1, 1, 1, 1 </color>
 		<rect2 name="2/region"> 0, 0, 64, 64 </rect2>
@@ -55,7 +53,7 @@
 		<vector2 name="2/one_way_collision_direction"> 0, 0 </vector2>
 		<real name="2/one_way_collision_max_depth"> 0 </real>
 		<string name="3/name"> "Sand" </string>
-		<resource name="3/texture" external="3">  </resource>
+		<resource name="3/texture" external="0">  </resource>
 		<vector2 name="3/tex_offset"> 0, 0 </vector2>
 		<resource name="3/material"></resource>		<color name="3/modulate"> 1, 1, 1, 1 </color>
 		<rect2 name="3/region"> 0, 0, 64, 64 </rect2>

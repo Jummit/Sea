@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="TileSet" subresource_count="3" version="2.1" version_name="Godot Engine v2.1.4.stable.official">
-	<ext_resource path="res://Sea/Tileset/Assets/water.tex" type="Texture" index="0"></ext_resource>
+<resource_file type="TileSet" subresource_count="6" version="2.1" version_name="Godot Engine v2.1.4.stable.official">
+	<ext_resource path="res://Sea/Tileset/Assets/water4.tex" type="Texture" index="3"></ext_resource>
+	<ext_resource path="res://Sea/Tileset/Assets/water1.tex" type="Texture" index="0"></ext_resource>
+	<ext_resource path="res://Sea/Tileset/Assets/water2.tex" type="Texture" index="1"></ext_resource>
+	<ext_resource path="res://Sea/Tileset/Assets/water3.tex" type="Texture" index="2"></ext_resource>
 	<resource type="RectangleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
 		<vector2 name="extents"> 32, 32 </vector2>
 
 	</resource>
 	<main_resource>
-		<string name="0/name"> "Water" </string>
+		<string name="0/name"> "Water1" </string>
 		<resource name="0/texture" external="0">  </resource>
 		<vector2 name="0/tex_offset"> 0, 0 </vector2>
 		<resource name="0/material"></resource>		<color name="0/modulate"> 1, 1, 1, 1 </color>
@@ -20,6 +23,45 @@
 		</array>
 		<vector2 name="0/one_way_collision_direction"> 0, 0 </vector2>
 		<real name="0/one_way_collision_max_depth"> 0 </real>
+		<string name="1/name"> "Water2" </string>
+		<resource name="1/texture" external="1">  </resource>
+		<vector2 name="1/tex_offset"> 0, 0 </vector2>
+		<resource name="1/material"></resource>		<color name="1/modulate"> 1, 1, 1, 1 </color>
+		<rect2 name="1/region"> 0, 0, 64, 64 </rect2>
+		<vector2 name="1/occluder_offset"> 32, 32 </vector2>
+		<resource name="1/occluder"></resource>		<vector2 name="1/navigation_offset"> 32, 32 </vector2>
+		<resource name="1/navigation"></resource>		<vector2 name="1/shape_offset"> 32, 32 </vector2>
+		<array name="1/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<vector2 name="1/one_way_collision_direction"> 0, 0 </vector2>
+		<real name="1/one_way_collision_max_depth"> 0 </real>
+		<string name="2/name"> "Water3" </string>
+		<resource name="2/texture" external="2">  </resource>
+		<vector2 name="2/tex_offset"> 0, 0 </vector2>
+		<resource name="2/material"></resource>		<color name="2/modulate"> 1, 1, 1, 1 </color>
+		<rect2 name="2/region"> 0, 0, 64, 64 </rect2>
+		<vector2 name="2/occluder_offset"> 32, 32 </vector2>
+		<resource name="2/occluder"></resource>		<vector2 name="2/navigation_offset"> 32, 32 </vector2>
+		<resource name="2/navigation"></resource>		<vector2 name="2/shape_offset"> 32, 32 </vector2>
+		<array name="2/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<vector2 name="2/one_way_collision_direction"> 0, 0 </vector2>
+		<real name="2/one_way_collision_max_depth"> 0 </real>
+		<string name="3/name"> "Water4" </string>
+		<resource name="3/texture" external="3">  </resource>
+		<vector2 name="3/tex_offset"> 0, 0 </vector2>
+		<resource name="3/material"></resource>		<color name="3/modulate"> 1, 1, 1, 1 </color>
+		<rect2 name="3/region"> 0, 0, 64, 64 </rect2>
+		<vector2 name="3/occluder_offset"> 32, 32 </vector2>
+		<resource name="3/occluder"></resource>		<vector2 name="3/navigation_offset"> 32, 32 </vector2>
+		<resource name="3/navigation"></resource>		<vector2 name="3/shape_offset"> 32, 32 </vector2>
+		<array name="3/shapes" len="1" shared="false">
+			<resource  resource_type="Shape2D" path="local://1">  </resource>
+		</array>
+		<vector2 name="3/one_way_collision_direction"> 0, 0 </vector2>
+		<real name="3/one_way_collision_max_depth"> 0 </real>
 
 	</main_resource>
 </resource_file>

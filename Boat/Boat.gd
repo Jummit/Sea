@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 var cannonball = load("res://Boat/CannonBall/CannonBall.tscn")
-onready var cannonballs = get_node("/root/Root/Game/Game/CannonBalls")
 onready var sprite = get_node("Sprite")
 export var speed = 250
 var animations = {
@@ -16,6 +15,7 @@ var animations = {
 }
 
 func shootTo(point):
+	var cannonballs = get_node("/root/Root/Game/Game/CannonBalls")
 	var cannonballtoshoot = cannonball.instance()
 	cannonballtoshoot.set_global_pos(get_global_pos()+Vector2(-20, 0))
 	cannonballtoshoot.target = point
