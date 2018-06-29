@@ -1,9 +1,9 @@
 extends Panel
 
 var acquired = false;
-onready var title = get_node("VBoxContainer/Title")
+onready var title = get_node("CenterContainer/VBoxContainer/Title")
 onready var action = get_node("Action")
-onready var texture = get_node("VBoxContainer/CenterContainer/Texture")
+onready var texture = get_node("CenterContainer/VBoxContainer/CenterContainer/Texture")
 var image
 
 func _ready():

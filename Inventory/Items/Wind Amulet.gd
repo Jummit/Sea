@@ -1,7 +1,7 @@
-extends "res://Inventory/Items/Item.gd"
-
-onready var boat = get_node("/root/Root/Game/Player/Boat")
+extends Node
 
 func process(acquired):
 	if acquired:
-		boat.speed = 100
+		var playerboat = get_node("/root/Root/Game/Game/Player/Boat")
+		if playerboat != null:
+			playerboat.speed = 300

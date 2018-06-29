@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Inventory/Inventory.gd" type="Script" id=1]
 [ext_resource path="res://Inventory/Font/Lato-Black.fnt" type="BitmapFont" id=2]
@@ -6,8 +6,10 @@
 [ext_resource path="res://Inventory/Items/Compass.gd" type="Script" id=4]
 [ext_resource path="res://Inventory/Items/Map.gd" type="Script" id=5]
 [ext_resource path="res://Inventory/Items/Wind Amulet.gd" type="Script" id=6]
-[ext_resource path="res://Inventory/CloseAnimation.tres" type="Animation" id=7]
-[ext_resource path="res://Inventory/OpenAnimation.tres" type="Animation" id=8]
+[ext_resource path="res://Inventory/Items/Water Amulet.gd" type="Script" id=7]
+[ext_resource path="res://Inventory/Items/Earth Amulet.gd" type="Script" id=8]
+[ext_resource path="res://Inventory/CloseAnimation.tres" type="Animation" id=9]
+[ext_resource path="res://Inventory/OpenAnimation.tres" type="Animation" id=10]
 
 [node name="Inventory" type="MarginContainer"]
 
@@ -113,7 +115,6 @@ custom_constants/margin_bottom = 40
 
 [node name="GridContainer" type="GridContainer" parent="Panel/VBoxContainer/HBoxContainer/Items"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 3
@@ -165,11 +166,14 @@ anchor/bottom = 0
 margin/left = 200.0
 margin/right = 296.0
 margin/bottom = 91.0
-script/script = ExtResource( 6 )
 
 [node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Wind Amulet"]
 
 text = "Makes you a little bit faster in when traveling with a boat."
+
+[node name="Action" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Wind Amulet"]
+
+script/script = ExtResource( 6 )
 
 [node name="Fire Amulet" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
@@ -199,9 +203,12 @@ text = "When you hold it on your ear, it makes a sound like a shell.
 
 Makes you loose half of the water you normally would."
 
+[node name="Action" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Water Amulet"]
+
+script/script = ExtResource( 7 )
+
 [node name="Earth Amulet" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
-editor/display_folded = true
 anchor/right = 0
 anchor/bottom = 0
 margin/left = 100.0
@@ -214,6 +221,10 @@ margin/bottom = 186.0
 text = "Enables you to walk faster on land.
 
 It smells like dust and dirt. Somehow this reminds you of your old home..."
+
+[node name="Action" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Earth Amulet"]
+
+script/script = ExtResource( 8 )
 
 [node name="Sword" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
@@ -444,8 +455,8 @@ max_lines_visible = -1
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/CloseAnimation = ExtResource( 7 )
-anims/OpenAnimation = ExtResource( 8 )
+anims/CloseAnimation = ExtResource( 9 )
+anims/OpenAnimation = ExtResource( 10 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
