@@ -62,7 +62,7 @@ size_flags/vertical = 3
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 864.0
-margin/bottom = 239.0
+margin/bottom = 158.0
 custom_fonts/font = ExtResource( 2 )
 text = "You died by by pidgeons."
 align = 1
@@ -78,9 +78,9 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 243.0
+margin/top = 162.0
 margin/right = 864.0
-margin/bottom = 276.0
+margin/bottom = 195.0
 custom_fonts/font = ExtResource( 2 )
 text = "Items you collected in this run:"
 align = 1
@@ -89,30 +89,48 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Items" type="MarginContainer" parent="MarginContainer/Panel/VBoxContainer"]
+[node name="Items" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 199.0
+margin/right = 864.0
+margin/bottom = 357.0
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Panel/VBoxContainer"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 3
 size_flags/vertical = 3
 margin/left = 0.0
-margin/top = 280.0
+margin/top = 361.0
 margin/right = 864.0
 margin/bottom = 520.0
-custom_constants/margin_right = 40
-custom_constants/margin_left = 40
-custom_constants/margin_bottom = 40
+use_top_left = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer/Items"]
+[node name="ReturnButton" type="Button" parent="MarginContainer/Panel/VBoxContainer/CenterContainer"]
 
+rect/min_size = Vector2( 400, 50 )
 focus/ignore_mouse = false
-focus/stop_mouse = false
-size_flags/horizontal = 3
-size_flags/vertical = 3
-margin/left = 40.0
-margin/top = 0.0
-margin/right = 824.0
-margin/bottom = 200.0
-alignment = 0
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 232.0
+margin/top = 54.0
+margin/right = 632.0
+margin/bottom = 104.0
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Return to Title Screen"
+flat = false
+
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/CenterContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
 
 
