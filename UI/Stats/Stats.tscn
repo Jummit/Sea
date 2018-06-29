@@ -40,7 +40,6 @@ margin/right = 108.0
 margin/bottom = 18.0
 align = 1
 valign = 1
-defaultvalue = 1
 
 [node name="Water" parent="VBoxContainer" instance=ExtResource( 2 )]
 
@@ -51,7 +50,7 @@ margin/right = 108.0
 margin/bottom = 40.0
 align = 1
 valign = 1
-defaultvalue = 20
+value = 20
 
 [node name="Food" parent="VBoxContainer" instance=ExtResource( 2 )]
 
@@ -62,7 +61,7 @@ margin/right = 108.0
 margin/bottom = 62.0
 align = 1
 valign = 1
-defaultvalue = 20
+value = 20
 
 [node name="Sanity" parent="VBoxContainer" instance=ExtResource( 2 )]
 
@@ -73,7 +72,7 @@ margin/right = 108.0
 margin/bottom = 84.0
 align = 1
 valign = 1
-defaultvalue = 1
+value = 100
 limit = 100
 
 [node name="Crew" parent="VBoxContainer" instance=ExtResource( 2 )]
@@ -85,7 +84,7 @@ margin/right = 108.0
 margin/bottom = 108.0
 align = 1
 valign = 1
-defaultvalue = 5
+value = 3
 limit = 10
 
 
