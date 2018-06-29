@@ -20,9 +20,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 1.0
+margin/left = 2.0
 margin/top = -309.0
-margin/right = 904.0
+margin/right = 905.0
 margin/bottom = -1004.0
 custom_constants/margin_right = 80
 custom_constants/margin_top = 80
@@ -141,6 +141,11 @@ text = "Displays a pointer that points in the direction the last village you fou
 
 script/script = ExtResource( 4 )
 
+[node name="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Compass/CenterContainer"]
+
+margin/top = 4.0
+margin/bottom = 86.0
+
 [node name="Map" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
 editor/display_folded = true
@@ -157,6 +162,11 @@ text = "Displays a Minimap at the top left of your screen. Click it to show a bi
 [node name="Action" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Map"]
 
 script/script = ExtResource( 5 )
+
+[node name="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Map/CenterContainer"]
+
+margin/top = 4.0
+margin/bottom = 86.0
 
 [node name="Wind Amulet" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
@@ -175,6 +185,11 @@ text = "Makes you a little bit faster in when traveling with a boat."
 
 script/script = ExtResource( 6 )
 
+[node name="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Wind Amulet/CenterContainer"]
+
+margin/top = 4.0
+margin/bottom = 86.0
+
 [node name="Fire Amulet" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
 editor/display_folded = true
@@ -187,6 +202,11 @@ margin/bottom = 91.0
 [node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Fire Amulet"]
 
 text = "It has a very hot rock that glows like magma bound to it."
+
+[node name="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Fire Amulet/CenterContainer"]
+
+margin/top = 4.0
+margin/bottom = 86.0
 
 [node name="Water Amulet" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
@@ -207,8 +227,14 @@ Makes you loose half of the water you normally would."
 
 script/script = ExtResource( 7 )
 
+[node name="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Water Amulet/CenterContainer"]
+
+margin/top = 4.0
+margin/bottom = 86.0
+
 [node name="Earth Amulet" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 anchor/right = 0
 anchor/bottom = 0
 margin/left = 100.0
@@ -226,6 +252,11 @@ It smells like dust and dirt. Somehow this reminds you of your old home..."
 
 script/script = ExtResource( 8 )
 
+[node name="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Earth Amulet/CenterContainer"]
+
+margin/top = 4.0
+margin/bottom = 86.0
+
 [node name="Sword" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
 editor/display_folded = true
@@ -239,6 +270,11 @@ margin/bottom = 186.0
 [node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Sword"]
 
 text = "You can attack castles with this. You may still loose some of your crew though."
+
+[node name="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Sword/CenterContainer"]
+
+margin/top = 4.0
+margin/bottom = 86.0
 
 [node name="Cannon" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
@@ -254,6 +290,11 @@ margin/bottom = 186.0
 
 text = "Enables you to shoot by clicking when in a boat. Attack some pirates and steal their treasure!"
 
+[node name="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Cannon/CenterContainer"]
+
+margin/top = 4.0
+margin/bottom = 86.0
+
 [node name="Storage Crate" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
 editor/display_folded = true
@@ -266,6 +307,11 @@ margin/bottom = 281.0
 [node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Storage Crate"]
 
 text = "Makes you start a run with more food and water."
+
+[node name="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Storage Crate/CenterContainer"]
+
+margin/top = 4.0
+margin/bottom = 86.0
 
 [node name="Treasure Chest" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
@@ -281,6 +327,11 @@ margin/bottom = 281.0
 
 text = "Makes you start a run with more gold."
 
+[node name="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Treasure Chest/CenterContainer"]
+
+margin/top = 4.0
+margin/bottom = 86.0
+
 [node name="Saphire" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
 editor/display_folded = true
@@ -294,6 +345,11 @@ margin/bottom = 281.0
 [node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Saphire"]
 
 text = "You never saw a crystal that big before! Maybe it is fake?"
+
+[node name="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Saphire/CenterContainer"]
+
+margin/top = 4.0
+margin/bottom = 86.0
 
 [node name="Diamond" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
@@ -309,6 +365,11 @@ margin/bottom = 281.0
 
 text = "A glass clear, shiny and smooth diamond!"
 
+[node name="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Diamond/CenterContainer"]
+
+margin/top = 4.0
+margin/bottom = 86.0
+
 [node name="Dwarf Crystall" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
 editor/display_folded = true
@@ -321,6 +382,11 @@ margin/bottom = 376.0
 [node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Dwarf Crystall"]
 
 text = "A red gem that was very carefully carved out of a rock."
+
+[node name="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Dwarf Crystall/CenterContainer"]
+
+margin/top = 4.0
+margin/bottom = 86.0
 
 [node name="Elven Gem" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
@@ -336,6 +402,11 @@ margin/bottom = 376.0
 
 text = "Energy flows trought your body when you hold this gem. It has a very soft surface, like a leaf."
 
+[node name="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Elven Gem/CenterContainer"]
+
+margin/top = 4.0
+margin/bottom = 86.0
+
 [node name="Unsolvable Puzzle" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer" instance=ExtResource( 3 )]
 
 editor/display_folded = true
@@ -349,6 +420,11 @@ margin/bottom = 376.0
 [node name="Description" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Unsolvable Puzzle"]
 
 text = "A odd shaped box with wooden gears and some dangling cubes on it. You just cant figure out how to open it..."
+
+[node name="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/Items/GridContainer/Unsolvable Puzzle/CenterContainer"]
+
+margin/top = 4.0
+margin/bottom = 86.0
 
 [node name="Info" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
 

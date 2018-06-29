@@ -50,7 +50,6 @@ margin/right = 108.0
 margin/bottom = 40.0
 align = 1
 valign = 1
-value = 20
 
 [node name="Food" parent="VBoxContainer" instance=ExtResource( 2 )]
 
