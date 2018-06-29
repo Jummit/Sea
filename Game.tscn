@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Sea/Tileset/Tileset.xml" type="TileSet" id=1]
 [ext_resource path="res://Sea/Sea.gd" type="Script" id=2]
@@ -6,6 +6,13 @@
 [ext_resource path="res://Islands/Islands.gd" type="Script" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Rain/Rain.gd" type="Script" id=7]
+[ext_resource path="res://Rain/rainparticle.tex" type="Texture" id=8]
+
+[sub_resource type="ColorRamp" id=1]
+
+offsets = FloatArray( 0, 0.619883, 0.77193, 1 )
+colors = ColorArray( 1, 1, 1, 1, 0.900187, 0.900187, 0.900187, 1, 0.753404, 0.753404, 0.753404, 1, 0.503906, 0.503906, 0.503906, 1 )
 
 [node name="Game" type="Node2D"]
 
@@ -56,6 +63,48 @@ script/script = ExtResource( 4 )
 [node name="CannonBalls" type="Node" parent="."]
 
 [node name="UI" parent="." instance=ExtResource( 6 )]
+
+[node name="Rain" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+script/script = ExtResource( 7 )
+
+[node name="Particles" type="Particles2D" parent="Rain"]
+
+transform/pos = Vector2( 520, 288 )
+config/amount = 800
+config/lifetime = 0.4
+config/process_mode = 1
+config/half_extents = Vector2( 1200, 1200 )
+config/local_space = false
+config/texture = ExtResource( 8 )
+params/direction = 30.0
+params/spread = 0.0
+params/linear_velocity = 500.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 30.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+color/color_ramp = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="Rain"]
+
+process_mode = 1
+wait_time = 100.0
+one_shot = false
+autostart = true
 
 [connection signal="generated" from="Sea" to="Islands" method="_on_Sea_generated"]
 
