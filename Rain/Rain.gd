@@ -7,6 +7,7 @@ onready var animationplayer = get_node("AnimationPlayer")
 var raining = true
 
 func _ready():
+	timer.start()
 	set_process(true)
 
 func _process(delta):
@@ -18,3 +19,4 @@ func toggle_rain():
 	raining = not raining
 	particles.set_emitting(raining)
 	timer.set_wait_time(rand_range(2, 7)*60)
+	timer.start()
